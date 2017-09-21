@@ -1,19 +1,24 @@
 package com.twu.biblioteca;
 
+import java.util.List;
+
 public class BibliotecaApp {
 
     public static void main(String[] args) {
 
         System.out.println("Welcome to Biblioteca");
 
-        Book test = new Book("Game of Thrones", "Bob", 1900);
-        Book test2 = new Book("Lord of the Rings", "John", 1950);
-
+        Book book1 = new Book("Game of Thrones", "Bob", 1900);
+        Book book2 = new Book("Lord of the Rings", "John", 1950);
+        Book book3 = new Book("Harry Potter", "Victoria", 1857);
+/*
         for(Book x: ListBooks.bookList) {
             System.out.println(x);
-            System.out.println(",");
         }
+*/
 
-        System.out.println(ListBooks.bookList.size());
+        ListBooks.getAllBooks();
+        MainMenu.getAllItems();
+
     }
 }

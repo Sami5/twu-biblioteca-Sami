@@ -1,17 +1,21 @@
 package com.twu.biblioteca;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Book {
 
      private String title;
      private String author;
-     private int yearPublished;
+     private int year;
 
-     public Book(String newTitle, String newAuthor, int newYearPublished) {
+     public Book(String newTitle, String newAuthor, int newYear) {
          title = newTitle;
          author = newAuthor;
-         yearPublished = newYearPublished;
+         year = newYear;
 
-         ListBooks.bookList.add(this);
+         ListBooks.addBook(this);
+         //ListBooks.bookList.add(this);
      }
 
      public String getTitle() {
@@ -22,8 +26,8 @@ public class Book {
          return author;
      }
 
-     public int getYearPublished() {
-         return yearPublished;
+     public int getYear() {
+         return year;
      }
 
      public void setTitle(String newTitle) {
@@ -34,14 +38,18 @@ public class Book {
          author = newAuthor;
      }
 
-     public void setYearPublished(int newYearPublished) {
-         yearPublished = newYearPublished;
-     }
-
-     @Override
-     public String toString() {
-         return this.getTitle();
+     public void setYear(int newYear) {
+         year = newYear;
      }
 
 
+    @Override
+    public String toString() {
+       String title = this.getTitle();
+       String author = this.getAuthor();
+       String year = String.valueOf(this.getYear());
+
+       String details = "Title: "+ title + ", " + "Author: " + author + ", " + "Year: " + year;
+       return details;
+    }
 }
