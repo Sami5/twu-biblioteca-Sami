@@ -7,8 +7,13 @@ public class BibliotecaApp {
         System.out.println("Welcome to Biblioteca");
 
         Book test = new Book("Game of Thrones", "Bob", 1900);
-        System.out.println(test.getTitle());
+        Book test2 = new Book("Lord of the Rings", "John", 1950);
 
+        for(Book x: ListBooks.bookList) {
+            System.out.println(x);
+            System.out.println(",");
+        }
 
+        System.out.println(ListBooks.bookList.size());
     }
 }

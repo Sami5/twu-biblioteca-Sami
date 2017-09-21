@@ -10,6 +10,8 @@ public class Book {
          title = newTitle;
          author = newAuthor;
          yearPublished = newYearPublished;
+
+         ListBooks.bookList.add(this);
      }
 
      public String getTitle() {
@@ -34,6 +36,11 @@ public class Book {
 
      public void setYearPublished(int newYearPublished) {
          yearPublished = newYearPublished;
+     }
+
+     @Override
+     public String toString() {
+         return this.getTitle();
      }
 
 
