@@ -20,5 +20,7 @@ public class BibliotecaApp {
 
         ListBooks.getAllBooks();
 
+        System.out.println(ListBooks.getBook(0));
+
     }
 }

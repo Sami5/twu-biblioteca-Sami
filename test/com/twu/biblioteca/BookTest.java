@@ -8,17 +8,17 @@ public class BookTest {
     Book test = new Book("Game of Thrones", "Bob", 1900);
 
     @Test
-    public void testBookTitle() {
+    public void testGetTitle() {
         assertEquals("Game of Thrones", test.getTitle());
     }
 
     @Test
-    public void testBookAuthor() {
+    public void testGetAuthor() {
         assertEquals("Bob", test.getAuthor());
     }
 
     @Test
-    public void testBookYear() {
+    public void testGetYear() {
         assertEquals(1900, test.getYear());
     }
 
