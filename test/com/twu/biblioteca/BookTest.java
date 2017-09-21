@@ -22,5 +22,10 @@ public class BookTest {
         assertEquals(1900, test.getYear());
     }
 
+    @Test
+    public void testGetIsAvailable() {
+        assertEquals(true, test.getIsAvailable());
+    }
+
 
 }
