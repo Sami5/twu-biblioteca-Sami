@@ -19,7 +19,8 @@ public class BibliotecaApp {
         ListBooks.getAllAvailableBooks();
         Book book4 = new Book("Harry Potter", "Victoria", 1857);
 
-        ListBooks.checkoutBook(book4);
+        System.out.println("show all :");
+        System.out.println(book4.showAll());
 
     }
 }

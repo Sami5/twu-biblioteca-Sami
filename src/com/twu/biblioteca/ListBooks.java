@@ -26,13 +26,13 @@ public class ListBooks {
         availableBooks.clear();
     }
 
-    public static Book getAvailableBook(int element){
-        return availableBooks.get(element);
+    public static Book getAvailableBook(int index){
+        return availableBooks.get(index);
     }
 
     public static void getAllAvailableBooks() {
         for (Book x : availableBooks) {
-            System.out.println(x);
+            System.out.println(x.showAll());
         }
     }
 

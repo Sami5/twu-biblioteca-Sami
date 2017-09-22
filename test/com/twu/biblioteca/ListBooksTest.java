@@ -23,7 +23,7 @@ public class ListBooksTest {
 
     @Test
     public void testGetAvailableBook() {
-        assertEquals("Title: Game of Thrones, Author: Bob, Year: 1900", ListBooks.getAvailableBook(0).toString());
+        assertEquals("Title: Game of Thrones, Author: Bob, Year: 1900", ListBooks.getAvailableBook(0).showAll().toString());
     }
 
     @Test
@@ -54,7 +54,7 @@ public class ListBooksTest {
 
     @Test
     public void testFindAvailableBookByTitle() {
-        assertEquals("Title: Lord of the Rings, Author: John, Year: 1950", ListBooks.findAvailableBookByTitle(1).toString());
+        assertEquals("Title: Lord of the Rings, Author: John, Year: 1950", ListBooks.findAvailableBookByTitle(1).showAll().toString());
     }
 
 }

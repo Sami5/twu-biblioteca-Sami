@@ -28,6 +28,15 @@ public class Book {
          return year;
      }
 
+     public String showAll() {
+         String title = this.getTitle();
+         String author = this.getAuthor();
+         String year = String.valueOf(this.getYear());
+
+         String details = "Title: "+ title + ", " + "Author: " + author + ", " + "Year: " + year;
+         return details;
+     }
+
      //public boolean getIsAvailable() {return isAvailable;}
 
      public void setTitle(String newTitle) {
@@ -44,14 +53,4 @@ public class Book {
 
      //public void setIsAvailable(boolean newIsAvailable) { isAvailable = newIsAvailable;}
 
-
-    @Override
-    public String toString() {
-       String title = this.getTitle();
-       String author = this.getAuthor();
-       String year = String.valueOf(this.getYear());
-
-       String details = "Title: "+ title + ", " + "Author: " + author + ", " + "Year: " + year;
-       return details;
-    }
 }
