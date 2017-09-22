@@ -1,8 +1,5 @@
 package com.twu.biblioteca;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Book {
 
      private String title;
@@ -16,8 +13,7 @@ public class Book {
          year = newYear;
          isAvailable = true;
 
-         ListBooks.addBook(this);
-         //ListBooks.bookList.add(this);
+         ListBooks.addAvailableBook(this);
      }
 
      public String getTitle() {

@@ -1,7 +1,5 @@
 package com.twu.biblioteca;
 
-import java.util.List;
-
 public class BibliotecaApp {
 
     public static void existingBooks() {
@@ -18,7 +16,7 @@ public class BibliotecaApp {
 
         existingBooks();
 
-        ListBooks.getAllBooks();
+        ListBooks.getAllAvailableBooks();
 
     }
 }

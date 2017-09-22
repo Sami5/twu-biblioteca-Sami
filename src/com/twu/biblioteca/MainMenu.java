@@ -9,7 +9,7 @@ public class MainMenu {
     }
 
     public static void getAllItems(){
-        for(String x: MainMenu.menuItems) {
+        for(String x: menuItems) {
             System.out.println(x);
         }
     }
