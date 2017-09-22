@@ -9,6 +9,19 @@ public class ListBooks {
 
     private static List<Book> checkedOutBooks = new ArrayList<Book>();
 
+    public static int getIndexByTitle(String title) {
+        for(Book x: availableBooks) {
+            if(x.getTitle() == title)   {
+                return availableBooks.indexOf(x);
+            }
+        }
+        return -1;
+    }
+
+    public static Book findAvailableBookByTitle(int index){
+        return getAvailableBook(index);
+    }
+
     public static void deleteAllAvailableBooks() {
         availableBooks.clear();
     }
@@ -29,13 +42,23 @@ public class ListBooks {
 
 
     public static void checkoutBook(Book book) {
-        checkedOutBooks.add(book);
-        availableBooks.remove(book);
+        try {
+            checkedOutBooks.add(book);
+            availableBooks.remove(book);
+            System.out.println("Thank you! Enjoy the book.");
+        } catch (Exception e) {
+            System.out.println("That book is not available.");
+        }
     }
 
     public static void returnBook(Book book) {
-        availableBooks.add(book);
-        checkedOutBooks.remove(book);
+        try {
+            availableBooks.add(book);
+            checkedOutBooks.remove(book);
+            System.out.println("Thank you for returning the book.");
+        } catch (Exception e) {
+            System.out.println("That is not a valid book to return.");
+        }
     }
 
     public static int availableBookListSize() {

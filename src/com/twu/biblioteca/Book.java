@@ -5,13 +5,13 @@ public class Book {
      private String title;
      private String author;
      private int year;
-     private boolean isAvailable;
+     //private boolean isAvailable;
 
      public Book(String newTitle, String newAuthor, int newYear) {
          title = newTitle;
          author = newAuthor;
          year = newYear;
-         isAvailable = true;
+         //isAvailable = true;
 
          ListBooks.addAvailableBook(this);
      }
@@ -28,7 +28,7 @@ public class Book {
          return year;
      }
 
-     public boolean getIsAvailable() {return isAvailable;}
+     //public boolean getIsAvailable() {return isAvailable;}
 
      public void setTitle(String newTitle) {
          title = newTitle;
@@ -42,7 +42,7 @@ public class Book {
          year = newYear;
      }
 
-     public void setIsAvailable(boolean newIsAvailable) { isAvailable = newIsAvailable;}
+     //public void setIsAvailable(boolean newIsAvailable) { isAvailable = newIsAvailable;}
 
 
     @Override

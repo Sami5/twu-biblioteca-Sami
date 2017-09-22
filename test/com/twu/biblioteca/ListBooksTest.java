@@ -38,7 +38,6 @@ public class ListBooksTest {
         Book test2 = new Book("Lord of the Rings", "John", 1950);
         Book test3 = new Book("Harry Potter", "Victoria", 1857);
 
-
         ListBooks.checkoutBook(test3);
         assertEquals(2, ListBooks.availableBookListSize());
         assertEquals(1, ListBooks.checkedOutBookListSize());
@@ -48,5 +47,14 @@ public class ListBooksTest {
         assertEquals(0, ListBooks.checkedOutBookListSize());
     }
 
+    @Test
+    public void testGetIndexByTitle() {
+        assertEquals(1, ListBooks.getIndexByTitle("Lord of the Rings"));
+    }
+
+    @Test
+    public void testFindAvailableBookByTitle() {
+        assertEquals("Title: Lord of the Rings, Author: John, Year: 1950", ListBooks.findAvailableBookByTitle(1).toString());
+    }
 
 }
