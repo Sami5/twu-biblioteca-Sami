@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class BibliotecaApp {
@@ -20,14 +21,19 @@ public class BibliotecaApp {
     }
 
     public static void main(String[] args) {
+        Book book4 = new Book("Harry Potter", "Victoria", 1857);
+
+        existingBooks();
 
         System.out.println("Welcome to Biblioteca\n");
 
-        MainMenu.chooseMenuItem();
+        //MainMenu.chooseMenuItem();
 
-        //existingBooks();
+        //ListBooks.selectBookToBorrow();
 
-        //ListBooks.getAllAvailableBooks();
+        //System.out.println(book4.showAll());
+
+        ListBooks.getAllAvailableBooks();
 
         //Book book4 = new Book("Harry Potter", "Victoria", 1857);
 

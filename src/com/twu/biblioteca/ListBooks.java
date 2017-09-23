@@ -19,10 +19,15 @@ public class ListBooks {
         }
     }
 
+    public static void selectBookToBorrow(){
+        System.out.println("To borrow, please input the books title\n");
+        String titleInput = BibliotecaApp.readInput();
+        borrowBook(titleInput);
+    }
 
     public static int getIndexByTitle(String title) {
         for(Book x: availableBooks) {
-            if(x.getTitle() == title)   {
+            if(x.getTitle().equals(title))   {
                 return availableBooks.indexOf(x);
             }
         }
@@ -38,9 +43,12 @@ public class ListBooks {
     }
 
     public static void getAllAvailableBooks() {
+        System.out.printf("%-20s%-20s%-20s%n", "Title", "Author", "Year");
+        System.out.println("--------------------------------------------------");
         for (Book x : availableBooks) {
             System.out.println(x.showAll());
         }
+        System.out.println("--------------------------------------------------");
     }
 
     public static void addAvailableBook(Book book) {

@@ -20,8 +20,13 @@ public class MainMenu {
         getAllItems();
         System.out.println("Please make menu selection\n");
         String input = BibliotecaApp.readInput();
-        if (input.equals(getMenuItem(0))){
-            System.out.println(getMenuItem(0) + " selected");
+        if (input.equals(getMenuItem(0))) {
+            System.out.println(getMenuItem(0) + " selected\n");
+            System.out.println("Books available:\n");
+            ListBooks.getAllAvailableBooks();
+            ListBooks.selectBookToBorrow();
+        } else if (input.equals("quit")) {
+            System.out.println("Exiting Program");
         } else {
             System.out.println("Select a valid option!");
             chooseMenuItem();
