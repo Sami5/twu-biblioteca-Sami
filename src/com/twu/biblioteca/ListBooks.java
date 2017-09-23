@@ -9,6 +9,17 @@ public class ListBooks {
 
     private static List<Book> checkedOutBooks = new ArrayList<Book>();
 
+    public static void borrowBook(String title){
+        int index = getIndexByTitle(title);
+        if (index >= 0) {
+            Book toBorrow = getAvailableBook(index);
+            checkoutBook(toBorrow);
+        } else {
+            System.out.println("That book is not available.");
+        }
+    }
+
+
     public static int getIndexByTitle(String title) {
         for(Book x: availableBooks) {
             if(x.getTitle() == title)   {
@@ -16,10 +27,6 @@ public class ListBooks {
             }
         }
         return -1;
-    }
-
-    public static Book findAvailableBookByTitle(int index){
-        return getAvailableBook(index);
     }
 
     public static void deleteAllAvailableBooks() {

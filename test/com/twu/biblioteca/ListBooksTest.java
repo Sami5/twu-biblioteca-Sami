@@ -54,7 +54,7 @@ public class ListBooksTest {
 
     @Test
     public void testFindAvailableBookByTitle() {
-        assertEquals("Title: Lord of the Rings, Author: John, Year: 1950", ListBooks.findAvailableBookByTitle(1).showAll().toString());
+        assertEquals("Title: Lord of the Rings, Author: John, Year: 1950", ListBooks.getAvailableBook(1).showAll().toString());
     }
 
 }

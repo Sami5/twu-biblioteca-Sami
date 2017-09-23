@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import java.util.Scanner;
+
 public class BibliotecaApp {
 
     public static void existingBooks() {
@@ -8,19 +10,31 @@ public class BibliotecaApp {
         Book book3 = new Book("Harry Potter", "Victoria", 1857);
     }
 
+    public static String readInput() {
+        Scanner scan = new Scanner(System.in).useDelimiter("\n");
+        System.out.print("Please enter input: ");
+        String input = scan.next();
+        scan.close();
+        System.out.println("");
+        return input;
+    }
+
     public static void main(String[] args) {
 
-        System.out.println("Welcome to Biblioteca");
+        System.out.println("Welcome to Biblioteca\n");
 
-        MainMenu.getAllItems();
+        MainMenu.chooseMenuItem();
 
-        existingBooks();
+        //existingBooks();
 
-        ListBooks.getAllAvailableBooks();
-        Book book4 = new Book("Harry Potter", "Victoria", 1857);
+        //ListBooks.getAllAvailableBooks();
 
-        System.out.println("show all :");
-        System.out.println(book4.showAll());
+        //Book book4 = new Book("Harry Potter", "Victoria", 1857);
+
+        //System.out.println("show all :");
+        //System.out.println(book4.showAll());
+
+        //System.out.println(readInput());
 
     }
 }
