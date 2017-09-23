@@ -15,9 +15,17 @@ public class BibliotecaApp {
         Scanner scan = new Scanner(System.in).useDelimiter("\n");
         System.out.print("Please enter input: ");
         String input = scan.next();
-        scan.close();
+        //scan.close();
         System.out.println("");
         return input;
+    }
+
+    public static void test() {
+        String test = readInput();
+        System.out.println(test);
+        String test2 = readInput();
+        System.out.println(test2);
+
     }
 
     public static void main(String[] args) {
@@ -27,20 +35,13 @@ public class BibliotecaApp {
 
         System.out.println("Welcome to Biblioteca\n");
 
+        //test();
+
         //MainMenu.chooseMenuItem();
 
-        //ListBooks.selectBookToBorrow();
+        ListBooks.selectBookToBorrow();
 
-        //System.out.println(book4.showAll());
 
-        ListBooks.getAllAvailableBooks();
-
-        //Book book4 = new Book("Harry Potter", "Victoria", 1857);
-
-        //System.out.println("show all :");
-        //System.out.println(book4.showAll());
-
-        //System.out.println(readInput());
 
     }
 }
