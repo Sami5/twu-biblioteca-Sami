@@ -20,14 +20,6 @@ public class BibliotecaApp {
         return input;
     }
 
-    public static void test() {
-        String test = readInput();
-        System.out.println(test);
-        String test2 = readInput();
-        System.out.println(test2);
-
-    }
-
     public static void main(String[] args) {
         Book book4 = new Book("Harry Potter", "Victoria", 1857);
 
@@ -35,11 +27,9 @@ public class BibliotecaApp {
 
         System.out.println("Welcome to Biblioteca\n");
 
-        //test();
+        MainMenu.chooseMenuItem();
 
-        //MainMenu.chooseMenuItem();
-
-        ListBooks.selectBookToBorrow();
+        //ListBooks.selectBookToBorrow();
 
 
 
