@@ -33,7 +33,7 @@ public class ListBooksTest {
     }
 
     @Test
-    public void testCheckoutBook() {
+    public void testCheckoutAndReturn() {
         ListBooks.deleteAllAvailableBooks();
         Book test1 = new Book("Game of Thrones", "Bob", 1900);
         Book test2 = new Book("Lord of the Rings", "John", 1950);
