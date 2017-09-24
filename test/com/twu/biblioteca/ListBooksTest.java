@@ -2,7 +2,6 @@ package com.twu.biblioteca;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -50,7 +49,7 @@ public class ListBooksTest {
 
     @Test
     public void testGetIndexByTitle() {
-        assertEquals(1, ListBooks.getIndexByTitle("Lord of the Rings"));
+        assertEquals(1, ListBooks.getIndexByTitleInAvailable("Lord of the Rings"));
     }
 
     @Test

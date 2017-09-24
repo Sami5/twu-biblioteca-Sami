@@ -1,7 +1,5 @@
 package com.twu.biblioteca;
 
-import com.sun.deploy.util.StringUtils;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,8 +9,8 @@ public class ListBooks {
 
     private static List<Book> checkedOutBooks = new ArrayList<Book>();
 
-    public static void borrowBook(String title){
-        int index = getIndexByTitle(title);
+    public static void checkBookIsAvailableToBorrow(String title) {
+        int index = getIndexByTitleInAvailable(title);
         if (index >= 0) {
             Book toBorrow = getAvailableBook(index);
             checkoutBook(toBorrow);
@@ -21,8 +19,8 @@ public class ListBooks {
         }
     }
 
-    public static void checkReturnBook(String title){
-        int index = getIndexByTitleCheckedOut(title);
+    public static void checkBookIsValidReturn(String title) {
+        int index = getIndexByTitleInCheckedOut(title);
         if (index >= 0) {
             Book toReturn = getCheckedOutBook(index);
             returnBook(toReturn);
@@ -31,20 +29,20 @@ public class ListBooks {
         }
     }
 
-    public static void selectBookToBorrow(){
+    public static void selectBookToBorrow() {
         System.out.println("To borrow, please input the books title\n");
         String titleInput = BibliotecaApp.readInput();
-        borrowBook(titleInput);
+        checkBookIsAvailableToBorrow(titleInput);
     }
 
-    public static void selectBookToReturn(){
+    public static void selectBookToReturn() {
         System.out.println("To return, please input the books title\n");
         String titleInput = BibliotecaApp.readInput();
-        checkReturnBook(titleInput);
+        checkBookIsValidReturn(titleInput);
     }
 
 
-    public static int getIndexByTitle(String title) {
+    public static int getIndexByTitleInAvailable(String title) {
         for(Book x: availableBooks) {
             if(x.getTitle().equals(title))   {
                 return availableBooks.indexOf(x);
@@ -53,7 +51,7 @@ public class ListBooks {
         return -1;
     }
 
-    public static int getIndexByTitleCheckedOut(String title) {
+    public static int getIndexByTitleInCheckedOut(String title) {
         for(Book x: checkedOutBooks) {
             if(x.getTitle().equals(title))   {
                 return checkedOutBooks.indexOf(x);

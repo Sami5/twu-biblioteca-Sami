@@ -9,16 +9,15 @@ public class MainMenu {
     }
 
     public static void getAllItems(){
-        System.out.println("Menu selections:");
+        System.out.println("Menu options:");
         for(String x: menuItems) {
             System.out.println(x);
         }
-        System.out.println("");
     }
 
     public static void chooseMenuItem() {
+        System.out.println("Please make menu selection.\n");
         getAllItems();
-        System.out.println("Please make menu selection\n");
         String input = BibliotecaApp.readInput().toLowerCase();
         if (input.equals(getMenuItem(0).toLowerCase())) {
             System.out.println(getMenuItem(0) + " selected\n");
