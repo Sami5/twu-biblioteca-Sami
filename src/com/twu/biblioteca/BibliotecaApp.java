@@ -27,6 +27,5 @@ public class BibliotecaApp {
         System.out.println("Welcome to Biblioteca\n");
 
         MainMenu.chooseMenuItem();
-
     }
 }
