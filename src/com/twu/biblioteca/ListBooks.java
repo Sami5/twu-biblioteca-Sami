@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import com.sun.deploy.util.StringUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,16 +21,42 @@ public class ListBooks {
         }
     }
 
+    public static void checkReturnBook(String title){
+        int index = getIndexByTitleCheckedOut(title);
+        if (index >= 0) {
+            Book toReturn = getCheckedOutBook(index);
+            returnBook(toReturn);
+        } else {
+            System.out.println("That is not a valid book to return.");
+        }
+    }
+
     public static void selectBookToBorrow(){
         System.out.println("To borrow, please input the books title\n");
         String titleInput = BibliotecaApp.readInput();
         borrowBook(titleInput);
     }
 
+    public static void selectBookToReturn(){
+        System.out.println("To return, please input the books title\n");
+        String titleInput = BibliotecaApp.readInput();
+        checkReturnBook(titleInput);
+    }
+
+
     public static int getIndexByTitle(String title) {
         for(Book x: availableBooks) {
             if(x.getTitle().equals(title))   {
                 return availableBooks.indexOf(x);
+            }
+        }
+        return -1;
+    }
+
+    public static int getIndexByTitleCheckedOut(String title) {
+        for(Book x: checkedOutBooks) {
+            if(x.getTitle().equals(title))   {
+                return checkedOutBooks.indexOf(x);
             }
         }
         return -1;
@@ -43,6 +71,7 @@ public class ListBooks {
     }
 
     public static void getAllAvailableBooks() {
+        System.out.println("Available Books:\n");
         System.out.printf("%-20s%-20s%-20s%n", "Title", "Author", "Year");
         System.out.println("--------------------------------------------------");
         for (Book x : availableBooks) {
