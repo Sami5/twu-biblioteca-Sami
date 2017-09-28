@@ -28,4 +28,26 @@ public class BookTest {
         assertEquals(expected, test.showAll());
     }
 
+    @Test
+    public void testSetTitle() {
+        test.setTitle("Lala");
+        assertEquals("Lala", test.getTitle());
+    }
+
+    @Test
+    public void testSetAuthor() {
+        test.setAuthor("George Washington");
+        assertEquals("George Washington", test.getAuthor());
+    }
+
+    @Test
+    public void testSetYear() {
+        test.setYear(1000);
+        assertEquals(1000, test.getYear());
+    }
+
+
 }
+
+
+
