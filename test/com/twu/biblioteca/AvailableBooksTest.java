@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -48,8 +49,13 @@ public class AvailableBooksTest {
     }
 
     @Test
-    public void testGetIndexByTitle() {
+    public void testGetIndexByTitle_ShouldReturnIndex_WhereBookFound() {
         assertEquals(1, AvailableBooks.getIndexByTitleInAvailable("Lord of the Rings"));
+    }
+    
+    @Test
+    public void testGetIndexByTitle_ShouldReturnMinusOne_WhereBookNotFound() {
+        assertEquals(-1, AvailableBooks.getIndexByTitleInAvailable("Ford of the Rings"));
     }
 
     @Test
