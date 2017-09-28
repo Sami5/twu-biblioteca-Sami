@@ -19,6 +19,7 @@ public class AvailableBooksTest {
     @After
     public void tearDown() {
         AvailableBooks.deleteAllAvailableBooks();
+        CheckedOutBooks.deleteAllCheckedOutBooks();
     }
 
     @Test
@@ -33,26 +34,40 @@ public class AvailableBooksTest {
     }
 
     @Test
-    public void testCheckoutAndReturn() {
+    public void testCheckoutBook() {
         AvailableBooks.deleteAllAvailableBooks();
-        Book test1 = new Book("Game of Thrones", "Bob", 1900);
-        Book test2 = new Book("Lord of the Rings", "John", 1950);
-        Book test3 = new Book("Harry Potter", "Victoria", 1857);
 
-        AvailableBooks.checkoutBook(test3);
-        assertEquals(2, AvailableBooks.availableBookListSize());
+        Book book1 = new Book("Game of Thrones", "Bob", 1900);
+        Book book2 = new Book("Lord of the Rings", "John", 1950);
+
+        AvailableBooks.checkoutBook(book2);
+
+        assertEquals(1, AvailableBooks.availableBookListSize());
         assertEquals(1, CheckedOutBooks.checkedOutBookListSize());
+    }
 
-        CheckedOutBooks.returnBook(test3);
-        assertEquals(3, AvailableBooks.availableBookListSize());
+    @Test
+    public void testReturnBook() {
+        AvailableBooks.deleteAllAvailableBooks();
+        CheckedOutBooks.deleteAllCheckedOutBooks();
+
+        Book book1 = new Book("Game of Thrones", "Bob", 1900);
+        Book book2 = new Book("Lord of the Rings", "John", 1950);
+
+        AvailableBooks.checkoutBook(book2);
+
+        CheckedOutBooks.returnBook(book2);
+
+        assertEquals(2, AvailableBooks.availableBookListSize());
         assertEquals(0, CheckedOutBooks.checkedOutBookListSize());
+
     }
 
     @Test
     public void testGetIndexByTitle_ShouldReturnIndex_WhereBookFound() {
         assertEquals(1, AvailableBooks.getIndexByTitleInAvailable("Lord of the Rings"));
     }
-    
+
     @Test
     public void testGetIndexByTitle_ShouldReturnMinusOne_WhereBookNotFound() {
         assertEquals(-1, AvailableBooks.getIndexByTitleInAvailable("Ford of the Rings"));

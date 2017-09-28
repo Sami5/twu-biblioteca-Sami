@@ -7,7 +7,7 @@ public class CheckedOutBooks {
 
     private static List<Book> checkedOutBooks = new ArrayList<Book>();
 
-    public static Book getCheckedOutBook(int element){
+    public static Book getCheckedOutBook(int element) {
         return checkedOutBooks.get(element);
     }
 
@@ -32,8 +32,8 @@ public class CheckedOutBooks {
     }
 
     public static int getIndexByTitleInCheckedOut(String title) {
-        for(Book x: checkedOutBooks) {
-            if(x.getTitle().equals(title))   {
+        for (Book x : checkedOutBooks) {
+            if (x.getTitle().equals(title)) {
                 return checkedOutBooks.indexOf(x);
             }
         }
@@ -50,13 +50,25 @@ public class CheckedOutBooks {
         }
     }
 
+
     public static void getAllCheckedOutBooks() {
+        System.out.println("Checked Out Books:\n");
+        System.out.printf("%-20s%-20s%-20s%n", "Title", "Author", "Year");
+        System.out.println("--------------------------------------------------");
         for (Book x : checkedOutBooks) {
-            System.out.println(x);
+            System.out.println(x.showAll());
         }
+        System.out.println("--------------------------------------------------");
     }
+
 
     public static int checkedOutBookListSize() {
         return checkedOutBooks.size();
     }
+
+
+    public static void deleteAllCheckedOutBooks() {
+        checkedOutBooks.clear();
+    }
+
 }
