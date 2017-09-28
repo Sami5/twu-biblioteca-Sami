@@ -8,28 +8,32 @@ public class Movie {
     private int movieRating;
 
     public Movie(String newName, int newYear, String newDirector, int newMovieRating){
-        name = newName;
-        year = newYear;
-        director = newDirector;
+        setName(newName);
+        setYear(newYear);
+        setDirector(newDirector);
+        setMovieRating(newMovieRating);
 
     }
 
 
-    public String getName() {
-        return name;
+    public String getName() { return name; }
+
+    public int getYear() { return year; }
+
+    public String getDirector() { return director; }
+
+    public int getMovieRating() { return movieRating; }
+
+    public void setName(String newName) { name = newName; }
+
+    public void setYear(int newYear) { year = newYear; }
+
+    public void setDirector(String newDirector) {director = newDirector; }
+
+    public void setMovieRating(int newMovieRating) {
+        movieRating = newMovieRating;
     }
 
-    public int getYear() {
-        return year;
-    }
-
-    public String getDirector() {
-        return director;
-    }
-
-    public int getMovieRating() {
-        return movieRating;
-    }
 
 
     public String showAll() {
