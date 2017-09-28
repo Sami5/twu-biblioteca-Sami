@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 
 public class MovieTest {
 
-    Movie test = new Movie("Titanic", 1997, "James Cameron", 5);
+    Movie test = new Movie("Titanic", 1997, "James Cameron", 10);
 
     @Test
     public void testGetName() {
@@ -24,12 +24,12 @@ public class MovieTest {
 
     @Test
     public void testGetMovieRating() {
-        assertEquals(5, test.getMovieRating());
+        assertEquals(10, test.getMovieRating());
     }
 
     @Test
     public void testShowAll() {
-        String expected = String.format("%-20s%-20s%-20s%-20s", "Titanic", 1997, "James Cameron", 5);
+        String expected = String.format("%-20s%-20s%-20s%-20s", "Titanic", 1997, "James Cameron", 10);
         assertEquals(expected, test.showAll());
     }
 

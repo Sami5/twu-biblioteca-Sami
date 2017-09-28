@@ -11,7 +11,6 @@ public class Movie {
         name = newName;
         year = newYear;
         director = newDirector;
-        movieRating = newMovieRating;
 
     }
 

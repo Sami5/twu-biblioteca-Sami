@@ -7,9 +7,9 @@ public class Book {
      private int year;
 
      public Book(String newTitle, String newAuthor, int newYear) {
-         title = newTitle;
-         author = newAuthor;
-         year = newYear;
+         setTitle(newTitle);
+         setAuthor(newAuthor);
+         setYear(newYear);
 
          ListBooks.addAvailableBook(this);
      }
