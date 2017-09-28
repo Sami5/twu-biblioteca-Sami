@@ -21,7 +21,7 @@ public class MainMenu {
         String input = BibliotecaApp.readInput().toLowerCase();
         if (input.equals(getMenuItem(0).toLowerCase())) {
             System.out.println(getMenuItem(0) + " selected\n");
-            ListBooks.getAllAvailableBooks();
+            AvailableBooks.getAllAvailableBooks();
             navigation();
         } else if (input.equals("quit")) {
             System.out.println("Exiting Program");
@@ -38,15 +38,15 @@ public class MainMenu {
         String input = BibliotecaApp.readInput().toLowerCase();
         switch(input) {
             case "list books":
-                ListBooks.getAllAvailableBooks();
+                AvailableBooks.getAllAvailableBooks();
                 navigation();
                 break;
             case "borrow book":
-                ListBooks.selectBookToBorrow();
+                AvailableBooks.selectBookToBorrow();
                 navigation();
                 break;
             case "return book":
-                ListBooks.selectBookToReturn();
+                CheckedOutBooks.selectBookToReturn();
                 navigation();
                 break;
             case "quit":
