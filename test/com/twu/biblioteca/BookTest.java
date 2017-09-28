@@ -24,7 +24,7 @@ public class BookTest {
 
     @Test
     public void testShowAll() {
-        String expected = String.format("%-20s%-20s%-20s", "Game of Thrones", "Bob", "1900");
+        String expected = String.format("%-20s%-20s%-20s", "Game of Thrones", "Bob", 1900);
         assertEquals(expected, test.showAll());
     }
 
