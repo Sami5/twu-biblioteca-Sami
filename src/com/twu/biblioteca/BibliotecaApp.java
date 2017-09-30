@@ -4,14 +4,14 @@ import java.util.Scanner;
 
 public class BibliotecaApp {
 
-    public static void existingBooks() {
+    public static void populateBooks() {
         Book book1 = new Book("Game of Thrones", "Bob", 1900);
         Book book2 = new Book("Lord of the Rings", "John", 1950);
         Book book3 = new Book("Harry Potter", "Victoria", 1857);
         Book book4 = new Book("The Hobbit", "Boris", 1700);
     }
 
-    public static void existingMovies() {
+    public static void populateMovies() {
         Movie movie1 = new Movie("Titanic", 1997, "James Cameron", 10);
         Movie movie2 = new Movie("Alien", 1980, "John Smith", 8);
         Movie movie3 = new Movie("The Matrix", 1999, "Dracula", 9);
@@ -29,8 +29,8 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
 
-        existingBooks();
-        existingMovies();
+        populateBooks();
+        populateMovies();
 
         System.out.println("Welcome to Biblioteca\n");
 
