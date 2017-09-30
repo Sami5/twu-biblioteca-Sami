@@ -43,7 +43,7 @@ public class Book {
         String author = this.getAuthor();
         int year = this.getYear();
 
-        String details = String.format("%-20s%-20s%-20s", title, author, year);
+        String details = String.format("%-30s%-30s%-20s", title, author, year);
         return details;
     }
 

@@ -74,7 +74,7 @@ public class Movie {
         String director = this.getDirector();
         String movieRating = this.getMovieRating();
 
-        String details = String.format("%-20s%-20s%-20s%-20s", name, year, director, movieRating);
+        String details = String.format("%-30s%-20s%-30s%-20s", name, year, director, movieRating);
         return details;
 
     }

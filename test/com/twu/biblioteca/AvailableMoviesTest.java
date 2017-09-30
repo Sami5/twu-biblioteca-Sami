@@ -23,7 +23,7 @@ public class AvailableMoviesTest {
 
     @Test
     public void testGetAvailableMovie() {
-        String expected = String.format("%-20s%-20s%-20s%-20s", "Titanic", 1997, "James Cameron", 10);
+        String expected = String.format("%-30s%-20s%-30s%-20s", "Titanic", 1997, "James Cameron", 10);
         assertEquals(expected, AvailableMovies.getAvailableMovie(0).showAll().toString());
     }
 
@@ -55,7 +55,7 @@ public class AvailableMoviesTest {
 
     @Test
     public void testFindAvailableMovieByName() {
-        String expected = String.format("%-20s%-20s%-20s%-20s", "Alien", 1980, "John Smith", 8);
+        String expected = String.format("%-30s%-20s%-30s%-20s", "Alien", 1980, "John Smith", 8);
         assertEquals(expected, AvailableMovies.getAvailableMovie(1).showAll().toString());
     }
 

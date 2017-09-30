@@ -24,7 +24,7 @@ public class AvailableBooksTest {
 
     @Test
     public void testGetAvailableBook() {
-        String expected = String.format("%-20s%-20s%-20s", "Game of Thrones", "Bob", "1900");
+        String expected = String.format("%-30s%-30s%-20s", "Game of Thrones", "Bob", "1900");
         assertEquals(expected, AvailableBooks.getAvailableBook(0).showAll().toString());
     }
 
@@ -58,7 +58,7 @@ public class AvailableBooksTest {
 
     @Test
     public void testFindAvailableBookByTitle() {
-        String expected = String.format("%-20s%-20s%-20s", "Lord of the Rings", "John", "1950");
+        String expected = String.format("%-30s%-30s%-20s", "Lord of the Rings", "John", "1950");
         assertEquals(expected, AvailableBooks.getAvailableBook(1).showAll().toString());
     }
 

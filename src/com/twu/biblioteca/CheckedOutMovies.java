@@ -52,12 +52,12 @@ public class CheckedOutMovies {
 
     public static void getAllCheckedOutMovies() {
         System.out.println("Checked Out Movies:\n");
-        System.out.printf("%-20s%-20s%-20s%-20s", "Name", "Year", "Director", "Movie Rating");
-        System.out.println("--------------------------------------------------");
+        System.out.printf("%-30s%-20s%-30s%-20s", "Name", "Year", "Director", "Movie Rating");
+        System.out.println("-----------------------------------------------------------------------");
         for (Movie x : checkedOutMovies) {
             System.out.println(x.showAll());
         }
-        System.out.println("--------------------------------------------------");
+        System.out.println("-----------------------------------------------------------------------");
     }
 
 

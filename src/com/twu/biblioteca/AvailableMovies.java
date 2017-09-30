@@ -47,13 +47,15 @@ public class AvailableMovies {
     
     public static void getAllAvailableMovies() {
         System.out.println("Available Movies:\n");
-        System.out.printf("%-20s%-20s%-20s%-20s", "Name", "Year", "Director", "Movie Rating");
-        System.out.println("--------------------------------------------------");
+        System.out.printf("%-30s%-20s%-30s%-20s", "Name", "Year", "Director", "Movie Rating");
+        System.out.println("--------------------------------------------------------------------------------------------------");
         for (Movie x : availableMovies) {
             System.out.println(x.showAll());
         }
-        System.out.println("--------------------------------------------------");
+        System.out.println("--------------------------------------------------------------------------------------------------");
     }
+
+
 
     public static void checkoutMovie(Movie movie) {
         try {

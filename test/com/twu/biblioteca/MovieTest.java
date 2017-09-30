@@ -75,7 +75,7 @@ public class MovieTest {
 
     @Test
     public void testShowAll() {
-        String expected = String.format("%-20s%-20s%-20s%-20s", "Titanic", 1997, "James Cameron", "10");
+        String expected = String.format("%-30s%-20s%-30s%-20s", "Titanic", 1997, "James Cameron", "10");
         assertEquals(expected, allValidParams.showAll());
     }
 

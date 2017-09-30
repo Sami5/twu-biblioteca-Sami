@@ -48,12 +48,12 @@ public class AvailableBooks {
 
     public static void getAllAvailableBooks() {
         System.out.println("Available Books:\n");
-        System.out.printf("%-20s%-20s%-20s%n", "Title", "Author", "Year");
-        System.out.println("--------------------------------------------------");
+        System.out.printf("%-30s%-30s%-20s%n", "Title", "Author", "Year");
+        System.out.println("-----------------------------------------------------------------------");
         for (Book x : availableBooks) {
             System.out.println(x.showAll());
         }
-        System.out.println("--------------------------------------------------");
+        System.out.println("-----------------------------------------------------------------------");
     }
 
 
