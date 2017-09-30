@@ -32,9 +32,9 @@ public class BibliotecaApp {
         populateBooks();
         populateMovies();
 
-        System.out.println("Welcome to Biblioteca\n");
+        System.out.println("Welcome to Biblioteca");
 
-        MainMenu.chooseMenuItem();
+        MainMenu.chooseMainMenuItem();
 
     }
 }

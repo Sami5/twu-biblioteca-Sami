@@ -2,39 +2,29 @@ package com.twu.biblioteca;
 
 public class MainMenu {
 
-    private static String[] menuItems = {"List Books", "List Movies"};
+    public static void chooseMainMenuItem() {
+        System.out.println("\nPlease make a menu selection.");
+        System.out.println("\n- List Books \n- List Movies \n- Quit");
 
-    public static String getMenuItem(int element){
-        return menuItems[element];
-    }
-
-    public static void getAllItems(){
-        System.out.println("Menu options:\n");
-        for(String x: menuItems) {
-            System.out.println(x);
-        }
-    }
-
-    public static void chooseMenuItem() {
-        System.out.println("Please make a menu selection.\n");
-        getAllItems();
         String input = BibliotecaApp.readInput().toLowerCase();
-        if (input.equals(getMenuItem(0).toLowerCase())) {
-            System.out.println(getMenuItem(0) + " selected\n");
-            AvailableBooks.getAllAvailableBooks();
-            bookNavigation();
-        }
-        else if (input.equals(getMenuItem(1).toLowerCase())) {
-            System.out.println(getMenuItem(1) + " selected\n");
-            AvailableMovies.getAllAvailableMovies();
-            movieNavigation();
-        }
-        else if (input.equals("quit")) {
-            System.out.println("Exiting Program");
-        }
-        else {
-            System.out.println("Select a valid option!\n");
-            chooseMenuItem();
+
+        switch(input) {
+            case "list books":
+                System.out.println("\nList Books selected");
+                AvailableBooks.getAllAvailableBooks();
+                bookNavigation();
+                break;
+            case "list movies":
+                System.out.println("\nList Movies selected");
+                AvailableMovies.getAllAvailableMovies();
+                movieNavigation();
+                break;
+            case "quit":
+                System.out.println("\nExiting Program");
+                break;
+            default:
+                System.out.println("\nSelect a valid option!");
+                chooseMainMenuItem();
         }
     }
 
@@ -43,6 +33,7 @@ public class MainMenu {
         System.out.println("\n- List Movies \n- Borrow Movie \n- Return Movie \n- Back \n- Quit");
 
         String input = BibliotecaApp.readInput().toLowerCase();
+
         switch(input) {
             case "list movies":
                 AvailableMovies.getAllAvailableMovies();
@@ -57,14 +48,14 @@ public class MainMenu {
                 movieNavigation();
                 break;
             case "back":
-                System.out.println("Back to Main Menu");
-                chooseMenuItem();
+                System.out.println("\nBack to Main Menu");
+                chooseMainMenuItem();
                 break;
             case "quit":
-                System.out.println("Exiting Program");
+                System.out.println("\nExiting Program");
                 break;
             default:
-                System.out.println("Select a valid option!");
+                System.out.println("\nSelect a valid option!");
                 movieNavigation();
         }
 
@@ -75,6 +66,7 @@ public class MainMenu {
         System.out.println("\n- List Books \n- Borrow Book \n- Return Book \n- Back \n- Quit");
 
         String input = BibliotecaApp.readInput().toLowerCase();
+
         switch(input) {
             case "list books":
                 AvailableBooks.getAllAvailableBooks();
@@ -89,14 +81,14 @@ public class MainMenu {
                 bookNavigation();
                 break;
             case "back":
-                System.out.println("Back to Main Menu");
-                chooseMenuItem();
+                System.out.println("\nBack to Main Menu");
+                chooseMainMenuItem();
                 break;
             case "quit":
-                System.out.println("Exiting Program");
+                System.out.println("\nExiting Program");
                 break;
             default:
-                System.out.println("Select a valid option!");
+                System.out.println("\nSelect a valid option!");
                 bookNavigation();
         }
 
