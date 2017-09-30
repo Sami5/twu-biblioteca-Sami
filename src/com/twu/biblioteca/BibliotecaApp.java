@@ -28,8 +28,5 @@ public class BibliotecaApp {
 
         MainMenu.chooseMenuItem();
 
-        //Movie invalidMovieRating = new Movie("Planet of the Apes", 1500, "Nicole", 15);
-        //System.out.println(invalidMovieRating);
-        //System.out.println(invalidMovieRating.showAll());
     }
 }

@@ -13,6 +13,9 @@ public class Movie {
             setYear(newYear);
             setDirector(newDirector);
             setMovieRating(newMovieRating);
+
+            AvailableMovies.addAvailableMovie(this);
+
         } else {
             throw new IllegalArgumentException("Invalid movie rating");
         }
@@ -23,6 +26,8 @@ public class Movie {
         setYear(newYear);
         setDirector(newDirector);
         setMovieRating();
+
+        AvailableMovies.addAvailableMovie(this);
     }
 
 

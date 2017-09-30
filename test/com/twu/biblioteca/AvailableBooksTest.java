@@ -47,23 +47,6 @@ public class AvailableBooksTest {
     }
 
     @Test
-    public void testReturnBook() {
-        AvailableBooks.deleteAllAvailableBooks();
-        CheckedOutBooks.deleteAllCheckedOutBooks();
-
-        Book book1 = new Book("Game of Thrones", "Bob", 1900);
-        Book book2 = new Book("Lord of the Rings", "John", 1950);
-
-        AvailableBooks.checkoutBook(book2);
-
-        CheckedOutBooks.returnBook(book2);
-
-        assertEquals(2, AvailableBooks.availableBookListSize());
-        assertEquals(0, CheckedOutBooks.checkedOutBookListSize());
-
-    }
-
-    @Test
     public void testGetIndexByTitle_ShouldReturnIndex_WhereBookFound() {
         assertEquals(1, AvailableBooks.getIndexByTitleInAvailable("Lord of the Rings"));
     }
