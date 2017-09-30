@@ -40,7 +40,7 @@ public class MainMenu {
 
     public static void movieNavigation() {
         System.out.println("\nWhat would you like to do next?");
-        System.out.println("\n- List Movies \n- Borrow Movie \n- Return Movie \n- Quit");
+        System.out.println("\n- List Movies \n- Borrow Movie \n- Return Movie \n- Back \n- Quit");
 
         String input = BibliotecaApp.readInput().toLowerCase();
         switch(input) {
@@ -56,6 +56,10 @@ public class MainMenu {
                 CheckedOutMovies.selectMovieToReturn();
                 movieNavigation();
                 break;
+            case "back":
+                System.out.println("Back to Main Menu");
+                chooseMenuItem();
+                break;
             case "quit":
                 System.out.println("Exiting Program");
                 break;
@@ -68,7 +72,7 @@ public class MainMenu {
 
     public static void bookNavigation() {
         System.out.println("\nWhat would you like to do next?");
-        System.out.println("\n- List Books \n- Borrow Book \n- Return Book \n- Quit");
+        System.out.println("\n- List Books \n- Borrow Book \n- Return Book \n- Back \n- Quit");
 
         String input = BibliotecaApp.readInput().toLowerCase();
         switch(input) {
@@ -83,6 +87,10 @@ public class MainMenu {
             case "return book":
                 CheckedOutBooks.selectBookToReturn();
                 bookNavigation();
+                break;
+            case "back":
+                System.out.println("Back to Main Menu");
+                chooseMenuItem();
                 break;
             case "quit":
                 System.out.println("Exiting Program");
