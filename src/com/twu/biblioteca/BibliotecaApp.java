@@ -27,6 +27,8 @@ public class BibliotecaApp {
         return input;
     }
 
+
+
     public static void main(String[] args) {
 
         populateBooks();
@@ -36,5 +38,7 @@ public class BibliotecaApp {
 
         MainMenu.chooseMainMenuItem();
 
+        //User test = new User("3439-3895", "sfj2849");
+        //System.out.println(test.showAll());
     }
 }
