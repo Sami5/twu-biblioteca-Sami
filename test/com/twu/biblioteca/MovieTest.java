@@ -51,7 +51,6 @@ public class MovieTest {
     @Test
     public void testSetMovieRating() {
 
-
         allValidParams.setMovieRating(5);
         assertEquals(String.valueOf(5), allValidParams.getMovieRating());
 /*
