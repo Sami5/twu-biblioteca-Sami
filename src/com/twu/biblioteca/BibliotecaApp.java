@@ -18,6 +18,13 @@ public class BibliotecaApp {
         Movie movie4 = new Movie("Pirates of the Caribbean", 1900, "Homer Simpson", 7);
     }
 
+    public static void populateUsers() {
+        User user1 = new User("243-9405", "fsl5", "Nicole Jones", "nicole@hotmail.com", "0455555555");
+        User user2 = new User("247-9407", "sfn39s", "Amanda Carter", "amanda@hotmail.com", "0455555777");
+        User user3 = new User("253-9805", "vjld3", "James Anderson", "james@hotmail.com", "0454445555");
+        User user4 = new User("233-9995", "fls3", "Orlando Spencer", "orlando@hotmail.com", "0452225555");
+    }
+
     public static String readInput() {
         Scanner scan = new Scanner(System.in).useDelimiter("\n");
         System.out.print("\nPlease enter input: \n");
@@ -27,18 +34,18 @@ public class BibliotecaApp {
         return input;
     }
 
-
-
     public static void main(String[] args) {
 
         populateBooks();
         populateMovies();
+        populateUsers();
 
         System.out.println("Welcome to Biblioteca");
 
         MainMenu.chooseMainMenuItem();
 
-        //User test = new User("3439-3895", "sfj2849");
-        //System.out.println(test.showAll());
+        //User user1 = new User("243-9405", "fsl5", "Nicole Jones", "nicole@hotmail.com", 0455555555);
+        //user1.getAllCheckedOutMovies();
+
     }
 }

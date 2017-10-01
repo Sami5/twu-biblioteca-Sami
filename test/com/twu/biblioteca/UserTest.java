@@ -9,20 +9,19 @@ import static org.junit.Assert.assertFalse;
 public class UserTest {
 
     User minParams = new User("389-2904", "ksfh389");
-    User allParams = new User("389-2893", "jfs0930", "Nicole Jones", "nicole@hotmail.com", 0455555555);
+    User allParams = new User("389-2893", "jfs0930", "Nicole Jones", "nicole@hotmail.com", "0455555555");
 
     @Test
     public void testShowAll_ShouldReturnString_WhereMinParamsEntered() {
-        String expected = String.format("%-30s%-30s%-30s%-30s%-20s", "389-2904", "ksfh389", null, null, 0);
+        String expected = String.format("%-30s%-30s%-30s%-30s%-20s", "389-2904", "ksfh389", null, null, null);
         assertEquals(expected, minParams.showAll());
     }
 
     @Test
     public void testShowAll_ShouldReturnString_WhereAllParamsEntered() {
-        String expected = String.format("%-30s%-30s%-30s%-30s%-20s", "389-2893", "jfs0930", "Nicole Jones", "nicole@hotmail.com", 0455555555);
+        String expected = String.format("%-30s%-30s%-30s%-30s%-20s", "389-2893", "jfs0930", "Nicole Jones", "nicole@hotmail.com", "0455555555");
         assertEquals(expected, allParams.showAll());
     }
-
 
     @Test(expected = IllegalArgumentException.class)
     public void testSetLibraryNumber_ShouldReturnException_WhereInputInvalid() {
