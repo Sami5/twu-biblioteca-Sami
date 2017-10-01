@@ -31,7 +31,7 @@ public class User {
     public int getPhone() {return phone;}
 
     public void setLibraryNumber(String newLibraryNumber) {
-        // format must equal xxx-xxxx
+        // Format must equal xxx-xxxx
 
         String numberPattern = "\\b\\d{3,3}\\-\\d{4,4}$";
 
