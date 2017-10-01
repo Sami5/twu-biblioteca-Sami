@@ -38,4 +38,18 @@ public class CheckedOutMoviesTest {
 
     }
 
+    @Test
+    public void testGetIndexByName_ShouldReturnIndex_WhereMovieFound() {
+        Movie movie1 = new Movie("Titanic", 1997, "James Cameron", 10);
+
+        AvailableMovies.checkoutMovie(movie1);
+
+        assertEquals(0, CheckedOutMovies.getIndexByNameInCheckedOut("Titanic"));
+    }
+
+    @Test
+    public void testGetIndexByName_ShouldReturnMinusOne_WhereMovieNotFound() {
+        assertEquals(-1, CheckedOutMovies.getIndexByNameInCheckedOut("Howdy"));
+    }
+
 }

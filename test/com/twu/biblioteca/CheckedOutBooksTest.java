@@ -38,6 +38,20 @@ public class CheckedOutBooksTest {
 
     }
 
+    @Test
+    public void testGetIndexByTitle_ShouldReturnIndex_WhereBookFound() {
+        Book test2 = new Book("Lord of the Rings", "John", 1950);
+
+        AvailableBooks.checkoutBook(test2);
+
+        assertEquals(0, CheckedOutBooks.getIndexByTitleInCheckedOut("Lord of the Rings"));
+    }
+
+    @Test
+    public void testGetIndexByTitle_ShouldReturnMinusOne_WhereBookNotFound() {
+        assertEquals(-1, CheckedOutBooks.getIndexByTitleInCheckedOut("Ford of the Rings"));
+    }
+
 
 
 }

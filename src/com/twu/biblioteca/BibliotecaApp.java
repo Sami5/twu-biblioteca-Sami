@@ -29,16 +29,12 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
 
-        //populateBooks();
-        //populateMovies();
+        populateBooks();
+        populateMovies();
 
-        //System.out.println("Welcome to Biblioteca");
+        System.out.println("Welcome to Biblioteca");
 
-        //MainMenu.chooseMainMenuItem();
-
-        Movie movie1 = new Movie("Titanic", 1997, "James Cameron", 15);
-
-        System.out.println(movie1.showAll());
+        MainMenu.chooseMainMenuItem();
 
     }
 }
