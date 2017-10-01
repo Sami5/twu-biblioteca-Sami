@@ -8,16 +8,20 @@ public class Movie {
     private String movieRating;
 
     public Movie(String newName, int newYear, String newDirector, int newMovieRating) {
-        if (newMovieRating > 0 && newMovieRating <= 10) {
-            setName(newName);
-            setYear(newYear);
-            setDirector(newDirector);
-            setMovieRating(newMovieRating);
+        try {
+            if (newMovieRating > 0 && newMovieRating <= 10) {
+                setName(newName);
+                setYear(newYear);
+                setDirector(newDirector);
+                setMovieRating(newMovieRating);
 
-            AvailableMovies.addAvailableMovie(this);
+                AvailableMovies.addAvailableMovie(this);
 
-        } else {
-            throw new IllegalArgumentException("Invalid movie rating");
+            } else {
+                throw new IllegalArgumentException("Invalid movie rating");
+            }
+        } catch (Exception e){
+            System.out.println("Invalid movie rating");
         }
     }
 

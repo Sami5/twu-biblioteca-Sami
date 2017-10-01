@@ -7,17 +7,8 @@ import static org.junit.Assert.assertEquals;
 public class MovieTest {
 
     Movie allValidParams = new Movie("Titanic", 1997, "James Cameron", 10);
-    Movie invalidMovieRating;
+    Movie invalidMovieRating = new Movie("Planet of the Apes", 1500, "Nicole", 15);
     Movie noMovieRating = new Movie("The Matrix", 1500, "James");
-
-    @Before
-    public void setup() {
-        try {
-          invalidMovieRating = new Movie("Planet of the Apes", 1500, "Nicole", 15);
-        } catch (RuntimeException e) {
-            //e.printStackTrace();
-        }
-    }
 
     @Test
     public void testGetName() {
