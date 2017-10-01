@@ -20,6 +20,18 @@ public class User {
         }
     }
 
+    public User(String newLibraryNumber, String newPassword, String newName, String newEmail, int newPhone) {
+        try {
+            setLibraryNumber(newLibraryNumber);
+            setPassword(newPassword);
+            setName(newName);
+            setEmail(newEmail);
+            setPhone(newPhone);
+        } catch (Exception e) {
+            System.out.println("Invalid Library Number Format");
+        }
+    }
+
     public String getLibraryNumber() {return libraryNumber;}
 
     public String getPassword() {return password;}
