@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import sun.applet.Main;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +29,7 @@ public class CheckedOutBooks {
 
     public static void selectBookToReturn() {
         System.out.println("To return, please input the books title\n");
-        String titleInput = BibliotecaApp.readInput();
+        String titleInput = MainMenu.readInput();
         checkBookIsValidReturn(titleInput);
     }
 

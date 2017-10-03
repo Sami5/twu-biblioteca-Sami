@@ -17,7 +17,7 @@ public class MainMenu {
         System.out.println("\nPlease make a menu selection.");
         System.out.println("\n- List Books \n- List Movies \n- Quit");
 
-        String input = BibliotecaApp.readInput().toLowerCase();
+        String input = readInput().toLowerCase();
 
         switch(input) {
             case "list books":
@@ -43,7 +43,7 @@ public class MainMenu {
         System.out.println("\nWhat would you like to do next?");
         System.out.println("\n- List Movies \n- Borrow Movie \n- Return Movie \n- Back \n- Quit");
 
-        String input = BibliotecaApp.readInput().toLowerCase();
+        String input = readInput().toLowerCase();
 
         switch(input) {
             case "list movies":
@@ -76,7 +76,7 @@ public class MainMenu {
         System.out.println("\nWhat would you like to do next?");
         System.out.println("\n- List Books \n- Borrow Book \n- Return Book \n- Back \n- Quit");
 
-        String input = BibliotecaApp.readInput().toLowerCase();
+        String input = readInput().toLowerCase();
 
         switch(input) {
             case "list books":

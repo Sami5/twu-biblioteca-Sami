@@ -27,7 +27,7 @@ public class AvailableBooks {
 
     public static void selectBookToBorrow() {
         System.out.println("To borrow, please input the books title\n");
-        String titleInput = BibliotecaApp.readInput();
+        String titleInput = MainMenu.readInput();
         checkBookIsAvailableToBorrow(titleInput);
     }
 

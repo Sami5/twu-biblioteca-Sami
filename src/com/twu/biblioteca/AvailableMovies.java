@@ -27,7 +27,7 @@ public class AvailableMovies {
 
     public static void selectMovieToBorrow() {
         System.out.println("To borrow, please input the movies name\n");
-        String nameInput = BibliotecaApp.readInput();
+        String nameInput = MainMenu.readInput();
         checkMovieIsAvailableToBorrow(nameInput);
     }
 

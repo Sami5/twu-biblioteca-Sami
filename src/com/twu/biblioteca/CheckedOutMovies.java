@@ -27,7 +27,7 @@ public class CheckedOutMovies {
 
     public static void selectMovieToReturn() {
         System.out.println("To return, please input the movies name\n");
-        String nameInput = BibliotecaApp.readInput();
+        String nameInput = MainMenu.readInput();
         checkMovieIsValidReturn(nameInput);
     }
 
