@@ -34,7 +34,7 @@ public class AvailableBooks {
 
     public static int getIndexByTitleInAvailable(String title) {
         for(Book x: availableBooks) {
-            if(x.getTitle().equals(title))   {
+            if(x.getTitle().equals(title)) {
                 return availableBooks.indexOf(x);
             }
         }

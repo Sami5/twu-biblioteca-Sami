@@ -1,6 +1,17 @@
 package com.twu.biblioteca;
 
+import java.util.Scanner;
+
 public class MainMenu {
+
+    public static String readInput() {
+        Scanner scan = new Scanner(System.in).useDelimiter("\n");
+        System.out.print("\nPlease enter input: \n");
+        String input = scan.next();
+        //scan.close();
+        System.out.println("");
+        return input;
+    }
 
     public static void chooseMainMenuItem() {
         System.out.println("\nPlease make a menu selection.");

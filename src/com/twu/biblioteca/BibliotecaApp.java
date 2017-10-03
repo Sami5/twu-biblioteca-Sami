@@ -1,7 +1,5 @@
 package com.twu.biblioteca;
 
-import java.util.Scanner;
-
 public class BibliotecaApp {
 
     public static void populateBooks() {
@@ -23,15 +21,6 @@ public class BibliotecaApp {
         User user2 = new User("247-9407", "sfn39s", "Amanda Carter", "amanda@hotmail.com", "0455555777");
         User user3 = new User("253-9805", "vjld3", "James Anderson", "james@hotmail.com", "0454445555");
         User user4 = new User("233-9995", "fls3", "Orlando Spencer", "orlando@hotmail.com", "0452225555");
-    }
-
-    public static String readInput() {
-        Scanner scan = new Scanner(System.in).useDelimiter("\n");
-        System.out.print("\nPlease enter input: \n");
-        String input = scan.next();
-        //scan.close();
-        System.out.println("");
-        return input;
     }
 
     public static void main(String[] args) {
