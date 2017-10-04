@@ -2,20 +2,20 @@ package com.twu.biblioteca;
 
 public class Movie {
 
-    private String name;
+    private String title;
     private int year;
     private String director;
     private String movieRating;
 
-    public Movie(String newName, int newYear, String newDirector, int newMovieRating) {
+    public Movie(String newTitle, int newYear, String newDirector, int newMovieRating) {
         try {
             if (newMovieRating > 0 && newMovieRating <= 10) {
-                setName(newName);
+                setTitle(newTitle);
                 setYear(newYear);
                 setDirector(newDirector);
                 setMovieRating(newMovieRating);
 
-                AvailableMovies.addAvailableMovie(this);
+                //AvailableMovies.addAvailableMovie(this);
 
             } else {
                 throw new IllegalArgumentException("Invalid movie rating");
@@ -25,18 +25,18 @@ public class Movie {
         }
     }
 
-    public Movie(String newName, int newYear, String newDirector) {
-        setName(newName);
+    public Movie(String newTitle, int newYear, String newDirector) {
+        setTitle(newTitle);
         setYear(newYear);
         setDirector(newDirector);
         setMovieRating();
 
-        AvailableMovies.addAvailableMovie(this);
+        //AvailableMovies.addAvailableMovie(this);
     }
 
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
     public int getYear() {
@@ -51,8 +51,8 @@ public class Movie {
         return movieRating;
     }
 
-    public void setName(String newName) {
-        name = newName;
+    public void setTitle(String newTitle) {
+        title = newTitle;
     }
 
     public void setYear(int newYear) {
@@ -73,12 +73,12 @@ public class Movie {
 
 
     public String showAll() {
-        String name = this.getName();
+        String title = this.getTitle();
         int year = this.getYear();
         String director = this.getDirector();
         String movieRating = this.getMovieRating();
 
-        String details = String.format("%-30s%-20s%-30s%-20s", name, year, director, movieRating);
+        String details = String.format("%-30s%-20s%-30s%-20s", title, year, director, movieRating);
         return details;
 
     }

@@ -11,15 +11,15 @@ public class User {
     private String name;
     private String email;
     private String phone;
-    private static List<Book> checkedOutBooks = new ArrayList<Book>();
-    private static List<Movie> checkedOutMovies = new ArrayList<Movie>();
+    private  List<Book> checkedOutBooks = new ArrayList<Book>();
+    private  List<Movie> checkedOutMovies = new ArrayList<Movie>();
 
     public User(String newLibraryNumber, String newPassword) {
         try {
             setLibraryNumber(newLibraryNumber);
             setPassword(newPassword);
 
-            UserList.addUser(this);
+            //UserList.addUser(this);
         } catch (Exception e) {
             System.out.println("Invalid Library Number Format");
         }
@@ -33,7 +33,7 @@ public class User {
             setEmail(newEmail);
             setPhone(newPhone);
 
-            UserList.addUser(this);
+            //UserList.addUser(this);
         } catch (Exception e) {
             System.out.println("Invalid Library Number Format");
         }

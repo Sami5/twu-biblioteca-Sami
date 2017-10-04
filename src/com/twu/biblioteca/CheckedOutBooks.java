@@ -7,17 +7,22 @@ import java.util.List;
 
 public class CheckedOutBooks {
 
-    private static List<Book> checkedOutBooks = new ArrayList<Book>();
+    private List<Book> checkedOutBooks = new ArrayList<Book>();
+    private AvailableBooks availableBooks;
 
-    public static Book getCheckedOutBook(int element) {
+    public void setAvailableBooks(AvailableBooks availableBooks){
+        this.availableBooks = availableBooks;
+    }
+
+    public Book getCheckedOutBook(int element) {
         return checkedOutBooks.get(element);
     }
 
-    public static void addCheckedOutBook(Book book) {
+    public void addCheckedOutBook(Book book) {
         checkedOutBooks.add(book);
     }
 
-    public static void checkBookIsValidReturn(String title) {
+    public void checkBookIsValidReturn(String title) {
         int index = getIndexByTitleInCheckedOut(title);
         if (index >= 0) {
             Book toReturn = getCheckedOutBook(index);
@@ -27,13 +32,7 @@ public class CheckedOutBooks {
         }
     }
 
-    public static void selectBookToReturn() {
-        System.out.println("To return, please input the books title\n");
-        String titleInput = MainMenu.readInput();
-        checkBookIsValidReturn(titleInput);
-    }
-
-    public static int getIndexByTitleInCheckedOut(String title) {
+    public int getIndexByTitleInCheckedOut(String title) {
         for (Book x : checkedOutBooks) {
             if (x.getTitle().equals(title)) {
                 return checkedOutBooks.indexOf(x);
@@ -42,9 +41,9 @@ public class CheckedOutBooks {
         return -1;
     }
 
-    public static void returnBook(Book book) {
+    public void returnBook(Book book) {
         try {
-            AvailableBooks.addAvailableBook(book);
+            availableBooks.addAvailableBook(book);
             checkedOutBooks.remove(book);
             System.out.println("Thank you for returning the book.");
         } catch (Exception e) {
@@ -53,7 +52,7 @@ public class CheckedOutBooks {
     }
 
 
-    public static void getAllCheckedOutBooks() {
+    public void getAllCheckedOutBooks() {
         System.out.println("Checked Out Books:\n");
         System.out.printf("%-30s%-30s%-20s%n", "Title", "Author", "Year");
         System.out.println("-----------------------------------------------------------------------");
@@ -64,12 +63,12 @@ public class CheckedOutBooks {
     }
 
 
-    public static int checkedOutBookListSize() {
+    public int checkedOutBookListSize() {
         return checkedOutBooks.size();
     }
 
 
-    public static void deleteAllCheckedOutBooks() {
+    public void deleteAllCheckedOutBooks() {
         checkedOutBooks.clear();
     }
 

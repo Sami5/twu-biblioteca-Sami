@@ -5,17 +5,22 @@ import java.util.List;
 
 public class CheckedOutMovies {
 
-    private static List<Movie> checkedOutMovies = new ArrayList<Movie>();
+    private List<Movie> checkedOutMovies = new ArrayList<Movie>();
+    private AvailableMovies availableMovies;
 
-    public static Movie getCheckedOutMovie(int element) {
+    public void setAvailableMovies(AvailableMovies availableMovies){
+        this.availableMovies = availableMovies;
+    }
+
+    public Movie getCheckedOutMovie(int element) {
         return checkedOutMovies.get(element);
     }
 
-    public static void addCheckedOutMovie(Movie movie) {
+    public void addCheckedOutMovie(Movie movie) {
         checkedOutMovies.add(movie);
     }
 
-    public static void checkMovieIsValidReturn(String name) {
+    public void checkMovieIsValidReturn(String name) {
         int index = getIndexByNameInCheckedOut(name);
         if (index >= 0) {
             Movie toReturn = getCheckedOutMovie(index);
@@ -25,24 +30,18 @@ public class CheckedOutMovies {
         }
     }
 
-    public static void selectMovieToReturn() {
-        System.out.println("To return, please input the movies name\n");
-        String nameInput = MainMenu.readInput();
-        checkMovieIsValidReturn(nameInput);
-    }
-
-    public static int getIndexByNameInCheckedOut(String name) {
+    public int getIndexByNameInCheckedOut(String name) {
         for (Movie x : checkedOutMovies) {
-            if (x.getName().equals(name)) {
+            if (x.getTitle().equals(name)) {
                 return checkedOutMovies.indexOf(x);
             }
         }
         return -1;
     }
 
-    public static void returnMovie(Movie movie) {
+    public void returnMovie(Movie movie) {
         try {
-            AvailableMovies.addAvailableMovie(movie);
+            availableMovies.addAvailableMovie(movie);
             checkedOutMovies.remove(movie);
             System.out.println("Thank you for returning the movie.");
         } catch (Exception e) {
@@ -50,7 +49,7 @@ public class CheckedOutMovies {
         }
     }
 
-    public static void getAllCheckedOutMovies() {
+    public void getAllCheckedOutMovies() {
         System.out.println("Checked Out Movies:\n");
         System.out.printf("%-30s%-20s%-30s%-20s", "Name", "Year", "Director", "Movie Rating");
         System.out.println("--------------------------------------------------------------------------------------------------");
@@ -61,12 +60,12 @@ public class CheckedOutMovies {
     }
 
 
-    public static int checkedOutMovieListSize() {
+    public int checkedOutMovieListSize() {
         return checkedOutMovies.size();
     }
 
 
-    public static void deleteAllCheckedOutMovies() {
+    public void deleteAllCheckedOutMovies() {
         checkedOutMovies.clear();
     }
 

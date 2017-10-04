@@ -2,39 +2,61 @@ package com.twu.biblioteca;
 
 public class BibliotecaApp {
 
-    public static void populateBooks() {
-        Book book1 = new Book("Game of Thrones", "Bob", 1900);
-        Book book2 = new Book("Lord of the Rings", "John", 1950);
-        Book book3 = new Book("Harry Potter", "Victoria", 1857);
-        Book book4 = new Book("The Hobbit", "Boris", 1700);
+    public static AvailableBooks populateBooks() {
+        AvailableBooks availableBooks = new AvailableBooks();
+
+        availableBooks.addAvailableBook(new Book("Game of Thrones", "Bob", 1900));
+        availableBooks.addAvailableBook(new Book("Game of Thrones", "Bob", 1900));
+        availableBooks.addAvailableBook(new Book("Lord of the Rings", "John", 1950));
+        availableBooks.addAvailableBook(new Book("Harry Potter", "Victoria", 1857));
+        availableBooks.addAvailableBook(new Book("The Hobbit", "Boris", 1700));
+
+        return availableBooks;
     }
 
-    public static void populateMovies() {
-        Movie movie1 = new Movie("Titanic", 1997, "James Cameron", 10);
-        Movie movie2 = new Movie("Alien", 1980, "John Smith", 8);
-        Movie movie3 = new Movie("The Matrix", 1999, "Dracula", 9);
-        Movie movie4 = new Movie("Pirates of the Caribbean", 1900, "Homer Simpson", 7);
+    public static AvailableMovies populateMovies() {
+        AvailableMovies availableMovies = new AvailableMovies();
+
+        availableMovies.addAvailableMovie(new Movie("Titanic", 1997, "James Cameron", 10));
+        availableMovies.addAvailableMovie(new Movie("Alien", 1980, "John Smith", 8));
+        availableMovies.addAvailableMovie(new Movie("The Matrix", 1999, "Dracula", 9));
+        availableMovies.addAvailableMovie(new Movie("Pirates of the Caribbean", 1900, "Homer Simpson", 7));
+
+        return availableMovies;
     }
 
-    public static void populateUsers() {
-        User user1 = new User("243-9405", "fsl5", "Nicole Jones", "nicole@hotmail.com", "0455555555");
-        User user2 = new User("247-9407", "sfn39s", "Amanda Carter", "amanda@hotmail.com", "0455555777");
-        User user3 = new User("253-9805", "vjld3", "James Anderson", "james@hotmail.com", "0454445555");
-        User user4 = new User("233-9995", "fls3", "Orlando Spencer", "orlando@hotmail.com", "0452225555");
+    public static UserList populateUsers() {
+        UserList userList = new UserList();
+
+        userList.addUser(new User("243-9405", "fsl5", "Nicole Jones", "nicole@hotmail.com", "0455555555"));
+        userList.addUser(new User("247-9407", "sfn39s", "Amanda Carter", "amanda@hotmail.com", "0455555777"));
+        userList.addUser(new User("253-9805", "vjld3", "James Anderson", "james@hotmail.com", "0454445555"));
+        userList.addUser(new User("233-9995", "fls3", "Orlando Spencer", "orlando@hotmail.com", "0452225555"));
+
+        return userList;
     }
 
     public static void main(String[] args) {
 
-        populateBooks();
-        populateMovies();
-        populateUsers();
+        AvailableBooks availableBooks = populateBooks();
+        AvailableMovies availableMovies = populateMovies();
+        UserList userList = populateUsers();
+
+        CheckedOutBooks checkedOutBooks = new CheckedOutBooks();
+        CheckedOutMovies checkedOutMovies = new CheckedOutMovies();
+
+        MainMenu menu = new MainMenu(availableBooks, availableMovies, checkedOutBooks, checkedOutMovies, userList);
+
+        availableBooks.setCheckedOutBooks(checkedOutBooks);
+        checkedOutBooks.setAvailableBooks(availableBooks);
+        availableMovies.setCheckedOutMovies(checkedOutMovies);
+        checkedOutMovies.setAvailableMovies(availableMovies);
 
         System.out.println("Welcome to Biblioteca");
 
-        MainMenu.chooseMainMenuItem();
+        //menu.chooseMainMenuItem();
 
-        //User user1 = new User("243-9405", "fsl5", "Nicole Jones", "nicole@hotmail.com", 0455555555);
-        //user1.getAllCheckedOutMovies();
+
 
     }
 }

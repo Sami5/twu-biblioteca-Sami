@@ -5,17 +5,22 @@ import java.util.List;
 
 public class AvailableBooks {
 
-    private static List<Book> availableBooks = new ArrayList<Book>();
+    private List<Book> availableBooks = new ArrayList<Book>();
+    private CheckedOutBooks checkedOutBooks;
 
-    public static Book getAvailableBook(int index){
+    public void setCheckedOutBooks(CheckedOutBooks checkedOutBooks) {
+        this.checkedOutBooks = checkedOutBooks;
+    }
+
+    public Book getAvailableBook(int index){
         return availableBooks.get(index);
     }
 
-    public static void addAvailableBook(Book book) {
+    public void addAvailableBook(Book book) {
         availableBooks.add(book);
     }
 
-    public static void checkBookIsAvailableToBorrow(String title) {
+    public void checkBookIsAvailableToBorrow(String title) {
         int index = getIndexByTitleInAvailable(title);
         if (index >= 0) {
             Book toBorrow = getAvailableBook(index);
@@ -25,14 +30,7 @@ public class AvailableBooks {
         }
     }
 
-    public static void selectBookToBorrow() {
-        System.out.println("To borrow, please input the books title\n");
-        String titleInput = MainMenu.readInput();
-        checkBookIsAvailableToBorrow(titleInput);
-    }
-
-
-    public static int getIndexByTitleInAvailable(String title) {
+    public int getIndexByTitleInAvailable(String title) {
         for(Book x: availableBooks) {
             if(x.getTitle().equals(title)) {
                 return availableBooks.indexOf(x);
@@ -41,12 +39,12 @@ public class AvailableBooks {
         return -1;
     }
 
-    public static void deleteAllAvailableBooks() {
+    public void deleteAllAvailableBooks() {
         availableBooks.clear();
     }
 
 
-    public static void getAllAvailableBooks() {
+    public void getAllAvailableBooks() {
         System.out.println("Available Books:\n");
         System.out.printf("%-30s%-30s%-20s%n", "Title", "Author", "Year");
         System.out.println("-----------------------------------------------------------------------");
@@ -57,9 +55,9 @@ public class AvailableBooks {
     }
 
 
-    public static void checkoutBook(Book book) {
+    public void checkoutBook(Book book) {
         try {
-            CheckedOutBooks.addCheckedOutBook(book);
+            checkedOutBooks.addCheckedOutBook(book);
             availableBooks.remove(book);
             System.out.println("Thank you! Enjoy the book.");
         } catch (Exception e) {
@@ -67,7 +65,7 @@ public class AvailableBooks {
         }
     }
 
-    public static int availableBookListSize() {
+    public int availableBookListSize() {
         return availableBooks.size();
     }
 

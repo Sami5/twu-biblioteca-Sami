@@ -5,18 +5,23 @@ import java.util.List;
 
 public class AvailableMovies {
 
-    private static List<Movie> availableMovies = new ArrayList<Movie>();
+    private List<Movie> availableMovies = new ArrayList<Movie>();
+    private CheckedOutMovies checkedOutMovies;
 
-    public static Movie getAvailableMovie(int index){
+    public void setCheckedOutMovies(CheckedOutMovies checkedOutMovies){
+        this.checkedOutMovies = checkedOutMovies;
+    }
+
+    public Movie getAvailableMovie(int index){
         return availableMovies.get(index);
     }
 
-    public static void addAvailableMovie(Movie movie) {
+    public void addAvailableMovie(Movie movie) {
         availableMovies.add(movie);
     }
 
-    public static void checkMovieIsAvailableToBorrow(String name) {
-        int index = getIndexByNameInAvailable(name);
+    public void checkMovieIsAvailableToBorrow(String title) {
+        int index = getIndexByTitleInAvailable(title);
         if (index >= 0) {
             Movie toBorrow = getAvailableMovie(index);
             checkoutMovie(toBorrow);
@@ -25,29 +30,23 @@ public class AvailableMovies {
         }
     }
 
-    public static void selectMovieToBorrow() {
-        System.out.println("To borrow, please input the movies name\n");
-        String nameInput = MainMenu.readInput();
-        checkMovieIsAvailableToBorrow(nameInput);
-    }
-
-    public static int getIndexByNameInAvailable(String name) {
+    public int getIndexByTitleInAvailable(String title) {
         for(Movie x: availableMovies) {
-            if(x.getName().equals(name))   {
+            if(x.getTitle().equals(title))   {
                 return availableMovies.indexOf(x);
             }
         }
         return -1;
     }
 
-    public static void deleteAllAvailableMovies() {
+    public void deleteAllAvailableMovies() {
         availableMovies.clear();
     }
 
     
-    public static void getAllAvailableMovies() {
+    public void getAllAvailableMovies() {
         System.out.println("Available Movies:\n");
-        System.out.printf("%-30s%-20s%-30s%-20s", "Name", "Year", "Director", "Movie Rating");
+        System.out.printf("%-30s%-20s%-30s%-20s", "Title", "Year", "Director", "Movie Rating");
         System.out.println("\n--------------------------------------------------------------------------------------------------");
         for (Movie x : availableMovies) {
             System.out.println(x.showAll());
@@ -55,9 +54,9 @@ public class AvailableMovies {
         System.out.println("--------------------------------------------------------------------------------------------------");
     }
 
-    public static void checkoutMovie(Movie movie) {
+    public void checkoutMovie(Movie movie) {
         try {
-            CheckedOutMovies.addCheckedOutMovie(movie);
+            checkedOutMovies.addCheckedOutMovie(movie);
             availableMovies.remove(movie);
             System.out.println("Thank you! Enjoy the movie.");
         } catch (Exception e) {
@@ -65,7 +64,7 @@ public class AvailableMovies {
         }
     }
 
-    public static int availableMovieListSize() {
+    public int availableMovieListSize() {
         return availableMovies.size();
     }
 

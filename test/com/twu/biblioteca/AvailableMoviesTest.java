@@ -44,17 +44,17 @@ public class AvailableMoviesTest {
     }
 
     @Test
-    public void testGetIndexByName_ShouldReturnIndex_WhereMovieFound() {
-        assertEquals(1, AvailableMovies.getIndexByNameInAvailable("Alien"));
+    public void testGetIndexByTitleShouldReturnIndex_WhereMovieFound() {
+        assertEquals(1, AvailableMovies.getIndexByTitleInAvailable("Alien"));
     }
 
     @Test
-    public void testGetIndexByName_ShouldReturnMinusOne_WhereMovieNotFound() {
-        assertEquals(-1, AvailableMovies.getIndexByNameInAvailable("Howdy"));
+    public void testGetIndexByTitle_ShouldReturnMinusOne_WhereMovieNotFound() {
+        assertEquals(-1, AvailableMovies.getIndexByTitleInAvailable("Howdy"));
     }
 
     @Test
-    public void testFindAvailableMovieByName() {
+    public void testFindAvailableMovieByTitle() {
         String expected = String.format("%-30s%-20s%-30s%-20s", "Alien", 1980, "John Smith", 8);
         assertEquals(expected, AvailableMovies.getAvailableMovie(1).showAll().toString());
     }

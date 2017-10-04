@@ -11,7 +11,7 @@ public class Book {
         setAuthor(newAuthor);
         setYear(newYear);
 
-        AvailableBooks.addAvailableBook(this);
+        //AvailableBooks.addAvailableBook(this);
     }
 
     public String getTitle() {
