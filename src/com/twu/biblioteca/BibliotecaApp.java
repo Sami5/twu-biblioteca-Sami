@@ -53,7 +53,8 @@ public class BibliotecaApp {
 
         System.out.println("Welcome to Biblioteca");
 
-        menu.chooseMainMenuItem();
+        //menu.chooseMainMenuItem();
+        menu.login();
 
 
 

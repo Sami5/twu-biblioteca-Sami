@@ -21,7 +21,7 @@ public class User {
 
             //UserList.addUser(this);
         } catch (Exception e) {
-            System.out.println("Invalid Library Number Format");
+            System.out.println(e.getMessage());
         }
     }
 
@@ -35,7 +35,7 @@ public class User {
 
             //UserList.addUser(this);
         } catch (Exception e) {
-            System.out.println("Invalid Library Number Format");
+            System.out.println(e.getMessage());
         }
     }
 
@@ -78,6 +78,18 @@ public class User {
 
         String details = String.format("%-30s%-30s%-30s%-30s%-20s", libraryNumber, password, name, email, phone);
         return details;
+    }
+
+    public void showContactInfo() {
+        String name = this.getName();
+        String email = this.getEmail();
+        String phone = this.getPhone();
+
+        System.out.println(getName() + " - User Account Details:\n");
+        System.out.printf("%-30s%-30s%-20s%n", "Name", "Email", "Phone");
+        System.out.println("-----------------------------------------------------------------------");
+        System.out.printf("%-30s%-30s%-20s", name, email, phone);
+        System.out.println("\n-----------------------------------------------------------------------");
     }
 
     public void getAllCheckedOutBooks() {

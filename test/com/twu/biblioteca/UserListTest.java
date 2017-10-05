@@ -15,12 +15,21 @@ public class UserListTest {
         userList.addUser(new User("243-9405", "fsl5", "Nicole Jones", "nicole@hotmail.com", "0455555555"));
     }
 
-
     @Test
     public void testGetUser() {
         String expected = String.format("%-30s%-30s%-30s%-30s%-20s", "243-9405", "fsl5", "Nicole Jones", "nicole@hotmail.com", "0455555555");
         System.out.println(userList.getUser(0).showAll());
         assertEquals(expected, userList.getUser(0).showAll().toString());
+    }
+
+    @Test
+    public void testGetIndexByLibraryNumberInUsers_ShouldReturnIndex_WhereMatchFound() {
+        assertEquals(0, userList.getIndexByLibraryNumberInUsers("243-9405"));
+    }
+
+    @Test
+    public void testGetIndexByLibraryNumberInUsers_ShouldReturnMinusOne_WhereMatchNotFound() {
+        assertEquals(-1, userList.getIndexByLibraryNumberInUsers("758686"));
     }
 
 }

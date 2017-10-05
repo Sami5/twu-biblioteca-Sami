@@ -27,33 +27,54 @@ public class MainMenu {
         return input;
     }
 
-    public void chooseMainMenuItem() {
+    public void login() {
+        System.out.println("\nPlease login to your account");
+        System.out.println("\nPlease enter your library number");
+        String libraryNumberInput = readInput();
+        System.out.println("\nPlease enter your password");
+        String passwordInput = readInput();
+        int index = userList.getIndexByLibraryNumberInUsers(libraryNumberInput);
+
+        if (index >= 0 && userList.getUser(index).getPassword().equals(passwordInput)) {
+            User activeUser = userList.getUser(index);
+            System.out.println("\nWelcome " + activeUser.getName());
+            chooseMainMenuItem(activeUser);
+        } else {
+            System.out.println("\nLogin unsuccessful");
+        }
+    }
+
+    public void chooseMainMenuItem(User activeUser) {
         System.out.println("\nPlease make a menu selection.");
-        System.out.println("\n- List Books \n- List Movies \n- Quit");
+        System.out.println("\n1. List Books \n2. List Movies \n3. List User Account Details \n4. Quit");
 
         String input = readInput().toLowerCase();
 
         switch(input) {
-            case "list books":
+            case "1":
                 System.out.println("\nList Books selected");
                 availableBooks.getAllAvailableBooks();
-                bookNavigation();
+                bookNavigation(activeUser);
                 break;
-            case "list movies":
+            case "2":
                 System.out.println("\nList Movies selected");
                 availableMovies.getAllAvailableMovies();
-                movieNavigation();
+                movieNavigation(activeUser);
                 break;
-            case "quit":
+            case "3":
+                activeUser.showContactInfo();
+                chooseMainMenuItem(activeUser);
+                break;
+            case "4":
                 System.out.println("\nExiting Program");
                 break;
             default:
                 System.out.println("\nSelect a valid option!");
-                chooseMainMenuItem();
+                chooseMainMenuItem(activeUser);
         }
     }
 
-    public void movieNavigation() {
+    public void movieNavigation(User activeUser) {
         System.out.println("\nWhat would you like to do next?");
         System.out.println("\n- List Movies \n- Borrow Movie \n- Return Movie \n- Back \n- Quit");
 
@@ -62,35 +83,35 @@ public class MainMenu {
         switch(input) {
             case "list movies":
                 availableMovies.getAllAvailableMovies();
-                movieNavigation();
+                movieNavigation(activeUser);
                 break;
             case "borrow movie":
                 System.out.println("To borrow, please input the movies title\n");
                 String titleInputBorrow = readInput();
                 availableMovies.checkMovieIsAvailableToBorrow(titleInputBorrow);
-                movieNavigation();
+                movieNavigation(activeUser);
                 break;
             case "return movie":
                 System.out.println("To return, please input the movies title\n");
                 String titleInputReturn = readInput();
                 checkedOutMovies.checkMovieIsValidReturn(titleInputReturn);
-                movieNavigation();
+                movieNavigation(activeUser);
                 break;
             case "back":
                 System.out.println("\nBack to Main Menu");
-                chooseMainMenuItem();
+                chooseMainMenuItem(activeUser);
                 break;
             case "quit":
                 System.out.println("\nExiting Program");
                 break;
             default:
                 System.out.println("\nSelect a valid option!");
-                movieNavigation();
+                movieNavigation(activeUser);
         }
 
     }
 
-    public void bookNavigation() {
+    public void bookNavigation(User activeUser) {
         System.out.println("\nWhat would you like to do next?");
         System.out.println("\n- List Books \n- Borrow Book \n- Return Book \n- Back \n- Quit");
 
@@ -99,30 +120,30 @@ public class MainMenu {
         switch(input) {
             case "list books":
                 availableBooks.getAllAvailableBooks();
-                bookNavigation();
+                bookNavigation(activeUser);
                 break;
             case "borrow book":
                 System.out.println("To borrow, please input the books title\n");
                 String titleInputBorrow = readInput();
                 availableBooks.checkBookIsAvailableToBorrow(titleInputBorrow);
-                bookNavigation();
+                bookNavigation(activeUser);
                 break;
             case "return book":
                 System.out.println("To return, please input the books title\n");
                 String titleInputReturn = readInput();
                 checkedOutBooks.checkBookIsValidReturn(titleInputReturn);
-                bookNavigation();
+                bookNavigation(activeUser);
                 break;
             case "back":
                 System.out.println("\nBack to Main Menu");
-                chooseMainMenuItem();
+                chooseMainMenuItem(activeUser);
                 break;
             case "quit":
                 System.out.println("\nExiting Program");
                 break;
             default:
                 System.out.println("\nSelect a valid option!");
-                bookNavigation();
+                bookNavigation(activeUser);
         }
 
     }

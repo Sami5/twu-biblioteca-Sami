@@ -14,8 +14,23 @@ public class UserList {
     public void addUser(User user) {
         users.add(user);
     }
-
-
-
+/*
+    public boolean checkLibraryNumberExists(String libraryNumber) {
+        int index = getIndexByLibraryNumberInUsers(libraryNumber);
+        if (index >= 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+*/
+    public int getIndexByLibraryNumberInUsers(String libraryNumber) {
+        for(User x: users) {
+            if(x.getLibraryNumber().equals(libraryNumber)) {
+                return users.indexOf(x);
+            }
+        }
+        return -1;
+    }
 
 }
