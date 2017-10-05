@@ -1,18 +1,35 @@
 package com.twu.biblioteca;
 
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class MovieTest {
 
+    AvailableMovies availableMovies = new AvailableMovies();
+    CheckedOutMovies checkedOutMovies = new CheckedOutMovies();
+
+    @BeforeClass
+    public void initialSetup() {
+        availableMovies.setCheckedOutMovies(checkedOutMovies);
+        checkedOutMovies.setAvailableMovies(availableMovies);
+    }
+
     Movie allValidParams = new Movie("Titanic", 1997, "James Cameron", 10);
     Movie invalidMovieRating = new Movie("Planet of the Apes", 1500, "Nicole", 15);
     Movie noMovieRating = new Movie("The Matrix", 1500, "James");
 
+    @Before
+    public void setup() {
+        availableMovies.addAvailableMovie(allValidParams);
+        availableMovies.addAvailableMovie(invalidMovieRating);
+        availableMovies.addAvailableMovie(noMovieRating);
+    }
+
     @Test
     public void testGetName() {
-        assertEquals("Titanic", allValidParams.getName());
+        assertEquals("Titanic", allValidParams.getTitle());
     }
 
     @Test
@@ -32,8 +49,8 @@ public class MovieTest {
 
     @Test
     public void testSetName(){
-        allValidParams.setName("Alien");
-        assertEquals("Alien", allValidParams.getName());
+        allValidParams.setTitle("Alien");
+        assertEquals("Alien", allValidParams.getTitle());
     }
 
     @Test

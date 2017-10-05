@@ -6,7 +6,6 @@ public class BibliotecaApp {
         AvailableBooks availableBooks = new AvailableBooks();
 
         availableBooks.addAvailableBook(new Book("Game of Thrones", "Bob", 1900));
-        availableBooks.addAvailableBook(new Book("Game of Thrones", "Bob", 1900));
         availableBooks.addAvailableBook(new Book("Lord of the Rings", "John", 1950));
         availableBooks.addAvailableBook(new Book("Harry Potter", "Victoria", 1857));
         availableBooks.addAvailableBook(new Book("The Hobbit", "Boris", 1700));
@@ -54,7 +53,7 @@ public class BibliotecaApp {
 
         System.out.println("Welcome to Biblioteca");
 
-        //menu.chooseMainMenuItem();
+        menu.chooseMainMenuItem();
 
 
 

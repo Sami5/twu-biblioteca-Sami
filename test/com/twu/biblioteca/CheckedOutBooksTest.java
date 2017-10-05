@@ -2,39 +2,49 @@ package com.twu.biblioteca;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
 public class CheckedOutBooksTest {
 
+    AvailableBooks availableBooks = new AvailableBooks();
+    CheckedOutBooks checkedOutBooks = new CheckedOutBooks();
+
+    @BeforeClass
+    public void initialSetup() {
+        availableBooks.setCheckedOutBooks(checkedOutBooks);
+        checkedOutBooks.setAvailableBooks(availableBooks);
+    }
+
     @Before
     public void setup() {
-        Book test1 = new Book("Game of Thrones", "Bob", 1900);
-        Book test2 = new Book("Lord of the Rings", "John", 1950);
-        Book test3 = new Book("Harry Potter", "Victoria", 1857);
+        availableBooks.addAvailableBook(new Book("Game of Thrones", "Bob", 1900));
+        availableBooks.addAvailableBook(new Book("Lord of the Rings", "John", 1950));
+        availableBooks.addAvailableBook(new Book("Harry Potter", "Victoria", 1857));
     }
 
     @After
     public void tearDown() {
-        AvailableBooks.deleteAllAvailableBooks();
-        CheckedOutBooks.deleteAllCheckedOutBooks();
+        availableBooks.deleteAllAvailableBooks();
+        checkedOutBooks.deleteAllCheckedOutBooks();
     }
 
     @Test
     public void testReturnBook() {
-        AvailableBooks.deleteAllAvailableBooks();
-        CheckedOutBooks.deleteAllCheckedOutBooks();
+        availableBooks.deleteAllAvailableBooks();
+        checkedOutBooks.deleteAllCheckedOutBooks();
 
         Book book1 = new Book("Game of Thrones", "Bob", 1900);
         Book book2 = new Book("Lord of the Rings", "John", 1950);
 
-        AvailableBooks.checkoutBook(book2);
+        availableBooks.checkoutBook(book2);
 
-        CheckedOutBooks.returnBook(book2);
+        checkedOutBooks.returnBook(book2);
 
-        assertEquals(2, AvailableBooks.availableBookListSize());
-        assertEquals(0, CheckedOutBooks.checkedOutBookListSize());
+        assertEquals(2, availableBooks.availableBookListSize());
+        assertEquals(0, checkedOutBooks.checkedOutBookListSize());
 
     }
 
@@ -42,14 +52,14 @@ public class CheckedOutBooksTest {
     public void testGetIndexByTitle_ShouldReturnIndex_WhereBookFound() {
         Book test2 = new Book("Lord of the Rings", "John", 1950);
 
-        AvailableBooks.checkoutBook(test2);
+        availableBooks.checkoutBook(test2);
 
-        assertEquals(0, CheckedOutBooks.getIndexByTitleInCheckedOut("Lord of the Rings"));
+        assertEquals(0, checkedOutBooks.getIndexByTitleInCheckedOut("Lord of the Rings"));
     }
 
     @Test
     public void testGetIndexByTitle_ShouldReturnMinusOne_WhereBookNotFound() {
-        assertEquals(-1, CheckedOutBooks.getIndexByTitleInCheckedOut("Ford of the Rings"));
+        assertEquals(-1, checkedOutBooks.getIndexByTitleInCheckedOut("Ford of the Rings"));
     }
 
 

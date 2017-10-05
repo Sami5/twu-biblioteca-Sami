@@ -1,11 +1,28 @@
 package com.twu.biblioteca;
 
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class BookTest {
 
+    AvailableBooks availableBooks = new AvailableBooks();
+    CheckedOutBooks checkedOutBooks = new CheckedOutBooks();
+
+    @BeforeClass
+    public void initialSetup() {
+        availableBooks.setCheckedOutBooks(checkedOutBooks);
+        checkedOutBooks.setAvailableBooks(availableBooks);
+    }
+
     Book test = new Book("Game of Thrones", "Bob", 1900);
+
+    @Before
+    public void setup() {
+        availableBooks.addAvailableBook(test);
+        //availableBooks.addAvailableBook(new Book("Game of Thrones", "Bob", 1900);
+    }
 
     @Test
     public void testGetTitle() {

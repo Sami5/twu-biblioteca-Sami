@@ -6,12 +6,14 @@ import static org.junit.Assert.assertEquals;
 
 public class UserListTest {
 
+    UserList userList = new UserList();
+
     @Test
     public void testGetAvailableBook() {
-        User user1 = new User("243-9405", "fsl5", "Nicole Jones", "nicole@hotmail.com", "0455555555");
+        userList.addUser(new User("243-9405", "fsl5", "Nicole Jones", "nicole@hotmail.com", "0455555555"));
         String expected = String.format("%-30s%-30s%-30s%-30s%-20s", "243-9405", "fsl5", "Nicole Jones", "nicole@hotmail.com", "0455555555");
-        System.out.println(UserList.getUser(0).showAll());
-        assertEquals(expected, UserList.getUser(0).showAll().toString());
+        System.out.println(userList.getUser(0).showAll());
+        assertEquals(expected, userList.getUser(0).showAll().toString());
     }
 
 }
