@@ -38,11 +38,12 @@ public class CheckedOutBooksTest {
 
         Book book1 = new Book("Game of Thrones", "Bob", 1900);
         Book book2 = new Book("Lord of the Rings", "John", 1950);
+        User user = new User("243-9405", "fsl5", "Nicole Jones", "nicole@hotmail.com", "0455555555");
 
         checkedOutBooks.addCheckedOutBook(book1);
         checkedOutBooks.addCheckedOutBook(book2);
 
-        checkedOutBooks.returnBook(book2);
+        checkedOutBooks.returnBook(book2, user);
 
         assertEquals(1, availableBooks.availableBookListSize());
         assertEquals(1, checkedOutBooks.checkedOutBookListSize());
@@ -51,9 +52,10 @@ public class CheckedOutBooksTest {
 
     @Test
     public void testGetIndexByTitle_ShouldReturnIndex_WhereBookFound() {
-        Book test2 = new Book("Lord of the Rings", "John", 1950);
+        Book test = new Book("Lord of the Rings", "John", 1950);
+        User user = new User("243-9405", "fsl5", "Nicole Jones", "nicole@hotmail.com", "0455555555");
 
-        availableBooks.checkoutBook(test2);
+        availableBooks.checkoutBook(test, user);
 
         assertEquals(0, checkedOutBooks.getIndexByTitleInCheckedOut("Lord of the Rings"));
     }

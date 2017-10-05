@@ -20,11 +20,11 @@ public class AvailableMovies {
         availableMovies.add(movie);
     }
 
-    public void checkMovieIsAvailableToBorrow(String title) {
+    public void checkMovieIsAvailableToBorrow(String title, User activeUser) {
         int index = getIndexByTitleInAvailable(title);
         if (index >= 0) {
             Movie toBorrow = getAvailableMovie(index);
-            checkoutMovie(toBorrow);
+            checkoutMovie(toBorrow, activeUser);
         } else {
             System.out.println("That movie is not available.");
         }
@@ -54,10 +54,11 @@ public class AvailableMovies {
         System.out.println("--------------------------------------------------------------------------------------------------");
     }
 
-    public void checkoutMovie(Movie movie) {
+    public void checkoutMovie(Movie movie, User activeUser) {
         try {
             checkedOutMovies.addCheckedOutMovie(movie);
             availableMovies.remove(movie);
+            activeUser.addCheckedOutMovie(movie);
             System.out.println("Thank you! Enjoy the movie.");
         } catch (Exception e) {
             System.out.println("That movie is not available.");

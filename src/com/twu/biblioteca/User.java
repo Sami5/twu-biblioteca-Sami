@@ -69,6 +69,14 @@ public class User {
 
     public void setPhone(String newPhone) {phone = newPhone;}
 
+    public void addCheckedOutBook(Book book) {checkedOutBooks.add(book); }
+
+    public void removeCheckedOutBook(Book book) {checkedOutBooks.remove(book);}
+
+    public void addCheckedOutMovie(Movie movie) {checkedOutMovies.add(movie);}
+
+    public void removeCheckedOutMovie(Movie movie) {checkedOutMovies.remove(movie);}
+
     public String showAll() {
         String libraryNumber = this.getLibraryNumber();
         String password = this.getPassword();
@@ -105,7 +113,7 @@ public class User {
     public void getAllCheckedOutMovies() {
         System.out.println(getName() + " - Checked Out Movies:\n");
         System.out.printf("%-30s%-20s%-30s%-20s", "Name", "Year", "Director", "Movie Rating");
-        System.out.println("--------------------------------------------------------------------------------------------------");
+        System.out.println("\n--------------------------------------------------------------------------------------------------");
         for (Movie x : checkedOutMovies) {
             System.out.println(x.showAll());
         }

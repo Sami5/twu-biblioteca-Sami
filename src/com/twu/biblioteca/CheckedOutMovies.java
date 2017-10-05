@@ -20,11 +20,11 @@ public class CheckedOutMovies {
         checkedOutMovies.add(movie);
     }
 
-    public void checkMovieIsValidReturn(String name) {
+    public void checkMovieIsValidReturn(String name, User activeUser) {
         int index = getIndexByNameInCheckedOut(name);
         if (index >= 0) {
             Movie toReturn = getCheckedOutMovie(index);
-            returnMovie(toReturn);
+            returnMovie(toReturn, activeUser);
         } else {
             System.out.println("That is not a valid movie to return.");
         }
@@ -39,10 +39,11 @@ public class CheckedOutMovies {
         return -1;
     }
 
-    public void returnMovie(Movie movie) {
+    public void returnMovie(Movie movie, User activeUser) {
         try {
             availableMovies.addAvailableMovie(movie);
             checkedOutMovies.remove(movie);
+            activeUser.removeCheckedOutMovie(movie);
             System.out.println("Thank you for returning the movie.");
         } catch (Exception e) {
             System.out.println("That is not a valid movie to return.");

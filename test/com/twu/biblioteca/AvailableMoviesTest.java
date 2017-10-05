@@ -46,11 +46,12 @@ public class AvailableMoviesTest {
 
         Movie movie1 = new Movie("Titanic", 1997, "James Cameron", 10);
         Movie movie2 = new Movie("Alien", 1980, "John Smith", 8);
+        User user = new User("243-9405", "fsl5", "Nicole Jones", "nicole@hotmail.com", "0455555555");
 
         availableMovies.addAvailableMovie(movie1);
         availableMovies.addAvailableMovie(movie2);
 
-        availableMovies.checkoutMovie(movie2);
+        availableMovies.checkoutMovie(movie2, user);
 
         assertEquals(1, availableMovies.availableMovieListSize());
         assertEquals(1, checkedOutMovies.checkedOutMovieListSize());

@@ -20,11 +20,11 @@ public class AvailableBooks {
         availableBooks.add(book);
     }
 
-    public void checkBookIsAvailableToBorrow(String title) {
+    public void checkBookIsAvailableToBorrow(String title, User activeUser) {
         int index = getIndexByTitleInAvailable(title);
         if (index >= 0) {
             Book toBorrow = getAvailableBook(index);
-            checkoutBook(toBorrow);
+            checkoutBook(toBorrow, activeUser);
         } else {
             System.out.println("That book is not available.");
         }
@@ -55,10 +55,11 @@ public class AvailableBooks {
     }
 
 
-    public void checkoutBook(Book book) {
+    public void checkoutBook(Book book, User activeUser) {
         try {
             checkedOutBooks.addCheckedOutBook(book);
             availableBooks.remove(book);
+            activeUser.addCheckedOutBook(book);
             System.out.println("Thank you! Enjoy the book.");
         } catch (Exception e) {
             System.out.println("That book is not available.");

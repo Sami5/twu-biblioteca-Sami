@@ -22,11 +22,11 @@ public class CheckedOutBooks {
         checkedOutBooks.add(book);
     }
 
-    public void checkBookIsValidReturn(String title) {
+    public void checkBookIsValidReturn(String title, User activeUser) {
         int index = getIndexByTitleInCheckedOut(title);
         if (index >= 0) {
             Book toReturn = getCheckedOutBook(index);
-            returnBook(toReturn);
+            returnBook(toReturn, activeUser);
         } else {
             System.out.println("That is not a valid book to return.");
         }
@@ -41,10 +41,11 @@ public class CheckedOutBooks {
         return -1;
     }
 
-    public void returnBook(Book book) {
+    public void returnBook(Book book, User activeUser) {
         try {
             availableBooks.addAvailableBook(book);
             checkedOutBooks.remove(book);
+            activeUser.removeCheckedOutBook(book);
             System.out.println("Thank you for returning the book.");
         } catch (Exception e) {
             System.out.println("That is not a valid book to return.");

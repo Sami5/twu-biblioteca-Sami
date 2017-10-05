@@ -88,13 +88,15 @@ public class MainMenu {
             case "2":
                 System.out.println("To borrow, please input the movies title\n");
                 String titleInputBorrow = readInput();
-                availableMovies.checkMovieIsAvailableToBorrow(titleInputBorrow);
+                availableMovies.checkMovieIsAvailableToBorrow(titleInputBorrow, activeUser);
+                activeUser.getAllCheckedOutMovies(); // delete line once test complete
                 movieNavigation(activeUser);
                 break;
             case "3":
                 System.out.println("To return, please input the movies title\n");
                 String titleInputReturn = readInput();
-                checkedOutMovies.checkMovieIsValidReturn(titleInputReturn);
+                checkedOutMovies.checkMovieIsValidReturn(titleInputReturn, activeUser);
+                activeUser.getAllCheckedOutMovies(); // delete line once test complete
                 movieNavigation(activeUser);
                 break;
             case "4":
@@ -125,13 +127,15 @@ public class MainMenu {
             case "2":
                 System.out.println("To borrow, please input the books title\n");
                 String titleInputBorrow = readInput();
-                availableBooks.checkBookIsAvailableToBorrow(titleInputBorrow);
+                availableBooks.checkBookIsAvailableToBorrow(titleInputBorrow, activeUser);
+                activeUser.getAllCheckedOutBooks(); // delete line once test complete
                 bookNavigation(activeUser);
                 break;
             case "3":
                 System.out.println("To return, please input the books title\n");
                 String titleInputReturn = readInput();
-                checkedOutBooks.checkBookIsValidReturn(titleInputReturn);
+                checkedOutBooks.checkBookIsValidReturn(titleInputReturn, activeUser);
+                activeUser.getAllCheckedOutBooks(); // delete line once test complete
                 bookNavigation(activeUser);
                 break;
             case "4":
