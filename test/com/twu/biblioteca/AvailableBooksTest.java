@@ -39,15 +39,16 @@ public class AvailableBooksTest {
 
         Book book1 = new Book("Game of Thrones", "Bob", 1900);
         Book book2 = new Book("Lord of the Rings", "John", 1950);
-        User user = new User("243-9405", "fsl5", "Nicole Jones", "nicole@hotmail.com", "0455555555");
+        User activeUser = new User("243-9405", "fsl5", "Nicole Jones", "nicole@hotmail.com", "0455555555");
 
         availableBooks.addAvailableBook(book1);
         availableBooks.addAvailableBook(book2);
 
-        availableBooks.checkoutBook(book2, user);
+        availableBooks.checkoutBook(book2, activeUser);
 
         assertEquals(1, availableBooks.availableBookListSize());
         assertEquals(1, checkedOutBooks.checkedOutBookListSize());
+        assertEquals(1, activeUser.checkedOutBooksListSize());
     }
 
     @Test

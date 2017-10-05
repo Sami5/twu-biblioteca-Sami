@@ -38,22 +38,23 @@ public class CheckedOutMoviesTest {
         checkedOutMovies.deleteAllCheckedOutMovies();
 
         Movie movie = new Movie("Titanic", 1997, "James Cameron", 10);
-        User user = new User("243-9405", "fsl5", "Nicole Jones", "nicole@hotmail.com", "0455555555");
+        User activeUser = new User("243-9405", "fsl5", "Nicole Jones", "nicole@hotmail.com", "0455555555");
 
         checkedOutMovies.addCheckedOutMovie(movie);
-        checkedOutMovies.returnMovie(movie, user);
+        checkedOutMovies.returnMovie(movie, activeUser);
 
         assertEquals(1, availableMovies.availableMovieListSize());
         assertEquals(0, checkedOutMovies.checkedOutMovieListSize());
+        assertEquals(0, activeUser.checkedOutMoviesListSize());
 
     }
 
     @Test
     public void testGetIndexByName_ShouldReturnIndex_WhereMovieFound() {
         Movie movie1 = new Movie("Titanic", 1997, "James Cameron", 10);
-        User user = new User("243-9405", "fsl5", "Nicole Jones", "nicole@hotmail.com", "0455555555");
+        User activeUser = new User("243-9405", "fsl5", "Nicole Jones", "nicole@hotmail.com", "0455555555");
 
-        availableMovies.checkoutMovie(movie1, user);
+        availableMovies.checkoutMovie(movie1, activeUser);
 
         assertEquals(0, checkedOutMovies.getIndexByNameInCheckedOut("Titanic"));
     }

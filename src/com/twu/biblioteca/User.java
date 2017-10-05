@@ -120,4 +120,12 @@ public class User {
         System.out.println("--------------------------------------------------------------------------------------------------");
     }
 
+    public int checkedOutBooksListSize() {
+        return checkedOutBooks.size();
+    }
+
+    public int checkedOutMoviesListSize() {
+        return checkedOutMovies.size();
+    }
+
 }
