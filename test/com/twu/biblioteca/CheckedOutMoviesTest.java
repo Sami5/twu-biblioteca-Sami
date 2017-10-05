@@ -9,17 +9,18 @@ import static org.junit.Assert.assertEquals;
 
 public class CheckedOutMoviesTest {
 
-    AvailableMovies availableMovies = new AvailableMovies();
-    CheckedOutMovies checkedOutMovies = new CheckedOutMovies();
-
-    @BeforeClass
-    public void initialSetup() {
-        availableMovies.setCheckedOutMovies(checkedOutMovies);
-        checkedOutMovies.setAvailableMovies(availableMovies);
-    }
+    AvailableMovies availableMovies;
+    CheckedOutMovies checkedOutMovies;
 
     @Before
     public void setup() {
+
+        availableMovies = new AvailableMovies();
+        checkedOutMovies = new CheckedOutMovies();
+
+        availableMovies.setCheckedOutMovies(checkedOutMovies);
+        checkedOutMovies.setAvailableMovies(availableMovies);
+
         availableMovies.addAvailableMovie(new Movie("Titanic", 1997, "James Cameron", 10));
         availableMovies.addAvailableMovie(new Movie("Alien", 1980, "John Smith", 8));
         availableMovies.addAvailableMovie(new Movie("The Matrix", 1999, "Dracula", 9));
@@ -36,14 +37,12 @@ public class CheckedOutMoviesTest {
         availableMovies.deleteAllAvailableMovies();
         checkedOutMovies.deleteAllCheckedOutMovies();
 
-        Movie movie1 = new Movie("Titanic", 1997, "James Cameron", 10);
-        Movie movie2 = new Movie("Alien", 1980, "John Smith", 8);
+        Movie movie = new Movie("Titanic", 1997, "James Cameron", 10);
 
-        availableMovies.checkoutMovie(movie2);
+        checkedOutMovies.addCheckedOutMovie(movie);
+        checkedOutMovies.returnMovie(movie);
 
-        checkedOutMovies.returnMovie(movie2);
-
-        assertEquals(2, availableMovies.availableMovieListSize());
+        assertEquals(1, availableMovies.availableMovieListSize());
         assertEquals(0, checkedOutMovies.checkedOutMovieListSize());
 
     }

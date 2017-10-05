@@ -9,17 +9,17 @@ import static org.junit.Assert.assertEquals;
 
 public class CheckedOutBooksTest {
 
-    AvailableBooks availableBooks = new AvailableBooks();
-    CheckedOutBooks checkedOutBooks = new CheckedOutBooks();
-
-    @BeforeClass
-    public void initialSetup() {
-        availableBooks.setCheckedOutBooks(checkedOutBooks);
-        checkedOutBooks.setAvailableBooks(availableBooks);
-    }
+    AvailableBooks availableBooks;
+    CheckedOutBooks checkedOutBooks;
 
     @Before
     public void setup() {
+        availableBooks = new AvailableBooks();
+        checkedOutBooks = new CheckedOutBooks();
+
+        availableBooks.setCheckedOutBooks(checkedOutBooks);
+        checkedOutBooks.setAvailableBooks(availableBooks);
+
         availableBooks.addAvailableBook(new Book("Game of Thrones", "Bob", 1900));
         availableBooks.addAvailableBook(new Book("Lord of the Rings", "John", 1950));
         availableBooks.addAvailableBook(new Book("Harry Potter", "Victoria", 1857));
@@ -39,12 +39,13 @@ public class CheckedOutBooksTest {
         Book book1 = new Book("Game of Thrones", "Bob", 1900);
         Book book2 = new Book("Lord of the Rings", "John", 1950);
 
-        availableBooks.checkoutBook(book2);
+        checkedOutBooks.addCheckedOutBook(book1);
+        checkedOutBooks.addCheckedOutBook(book2);
 
         checkedOutBooks.returnBook(book2);
 
-        assertEquals(2, availableBooks.availableBookListSize());
-        assertEquals(0, checkedOutBooks.checkedOutBookListSize());
+        assertEquals(1, availableBooks.availableBookListSize());
+        assertEquals(1, checkedOutBooks.checkedOutBookListSize());
 
     }
 

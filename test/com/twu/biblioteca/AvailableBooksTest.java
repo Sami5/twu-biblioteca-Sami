@@ -6,26 +6,20 @@ import static org.junit.Assert.assertEquals;
 
 public class AvailableBooksTest {
 
-    AvailableBooks availableBooks = new AvailableBooks();
-    CheckedOutBooks checkedOutBooks = new CheckedOutBooks();
-
-    @BeforeClass
-    public void initialSetup() {
-        availableBooks.setCheckedOutBooks(checkedOutBooks);
-        checkedOutBooks.setAvailableBooks(availableBooks);
-    }
+    AvailableBooks availableBooks;
+    CheckedOutBooks checkedOutBooks;
 
     @Before
     public void setup() {
+        availableBooks = new AvailableBooks();
+        checkedOutBooks = new CheckedOutBooks();
+
+        availableBooks.setCheckedOutBooks(checkedOutBooks);
+        checkedOutBooks.setAvailableBooks(availableBooks);
+
         availableBooks.addAvailableBook(new Book("Game of Thrones", "Bob", 1900));
         availableBooks.addAvailableBook(new Book("Lord of the Rings", "John", 1950));
         availableBooks.addAvailableBook(new Book("Harry Potter", "Victoria", 1857));
-    }
-
-    @After
-    public void tearDown() {
-        availableBooks.deleteAllAvailableBooks();
-        checkedOutBooks.deleteAllCheckedOutBooks();
     }
 
     @Test
@@ -45,6 +39,8 @@ public class AvailableBooksTest {
 
         Book book1 = new Book("Game of Thrones", "Bob", 1900);
         Book book2 = new Book("Lord of the Rings", "John", 1950);
+        availableBooks.addAvailableBook(book1);
+        availableBooks.addAvailableBook(book2);
 
         availableBooks.checkoutBook(book2);
 
